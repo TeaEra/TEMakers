@@ -33,7 +33,7 @@
                 </button>
                 <!-- -->
                 <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="..." />
+                    <img alt="Brand" src="" />
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,8 +52,8 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#register">登录</a></li>
-                    <li><a href="#login">注册</a></li>
+                    <li><a href="#" id="btn-login">登录</a></li>
+                    <li><a href="#" id="btn-register">注册</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
@@ -76,16 +76,9 @@
 <script src="libs/bower_components/underscore/underscore-min.js"></script>
 
 <!-- My javascript libs -->
-<script src="customized/js/te-templates.js"></script>
-
-<!-- Inline test codes; TODO: into a file; -->
-<script type="text/javascript">
-    "use strict";
-
-    //$("#main-content").html(TETemplates.templateProductCarousel() + "<br/>" + TETemplates.templateProductThreeColumns());
-    $("#main-content").html(TETemplates.templateLogin());
-    //$("#main-content").html(TETemplates.templateRegister());
-</script>
+<script src="customized/js/TETemplates.js"></script>
+<script src="customized/js/controller.js"></script>
+<script src="customized/js/controller-init.js"></script>
 
 </body>
 </html>

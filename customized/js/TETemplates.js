@@ -113,7 +113,7 @@
 
     window.TETemplates.templateLogin = _.template('\
     <!-- -->\
-    <div class="container" id="form-login">\
+    <div class="container" id="form-showLogin">\
         <div class="row">\
             <div class="col-md-4 col-md-offset-4">\
                 <div class="panel panel-default">\
@@ -146,7 +146,7 @@
 
     window.TETemplates.templateRegister = _.template('\
     <!-- -->\
-    <div class="container" id="form-register">\
+    <div class="container" id="form-showRegister">\
         <div class="row">\
             <div class="col-md-6 col-md-offset-3">\
                 <div class="panel panel-default">\
