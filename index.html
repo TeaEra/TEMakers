@@ -33,7 +33,7 @@
                 </button>
                 <!-- -->
                 <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="...">
+                    <img alt="Brand" src="..." />
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -58,17 +58,12 @@
             </div><!-- /.navbar-collapse -->
         </div>
     </nav>
-    <!-- -->
-    <div class="container" id="product-carousel">
-    </div>
-    <!-- -->
-    <br />
-    <div class="container" id="product-three-columns">
-    </div>
+
+    <div id="main-content"></div>
 </div>
 
-<div class="footer">
-    <div class="container" id="te-maker-footer">
+<div class="footer" id="te-maker-footer">
+    <div class="container" id="te-maker-footer-content">
     </div>
 </div>
 
@@ -87,9 +82,9 @@
 <script type="text/javascript">
     "use strict";
 
-    $("#product-carousel").html(templateProductCarousel());
-    $("#product-three-columns").html(templateProductThreeColumns());
-    $("#te-maker-footer").html();
+    //$("#main-content").html(templateProductCarousel() + "<br/>" + templateProductThreeColumns());
+    $("#main-content").html(templateLogin());
+    //$("#main-content").html(templateRegister());
 </script>
 
 </body>

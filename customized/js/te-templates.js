@@ -5,7 +5,9 @@
 "use strict";
 
 var templateProductCarousel = _.template('\
-    \<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">\
+<!-- -->\
+<div class="container" id="product-carousel">\
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">\
         <!-- Indicators -->\
         <ol class="carousel-indicators">\
             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>\
@@ -43,10 +45,13 @@ var templateProductCarousel = _.template('\
             <span class="sr-only">Next</span>\
         </a>\
     </div>\
-    ');
+</div>\
+');
 
 var templateProductThreeColumns = _.template('\
-    \<div class="col-md-4">\
+<!-- -->\
+<div class="container" id="product-three-columns">\
+    <div class="col-md-4">\
         <div class="panel panel-default">\
             <div class="panel-body">\
                 <img class="img-responsive" src="customized/img/Chrysanthemum.jpg" />\
@@ -100,4 +105,72 @@ var templateProductThreeColumns = _.template('\
             </div>\
         </div>\
     </div>\
-    ');
+</div>\
+');
+
+var templateLogin = _.template('\
+    <!-- -->\
+    <div class="container" id="form-login">\
+        <div class="row">\
+            <div class="col-md-4 col-md-offset-4">\
+                <div class="panel panel-default">\
+                    <div class="panel-heading">\
+                        <h3 class="panel-title">Please sign in</h3>\
+                    </div>\
+                    <div class="panel-body">\
+                        <form accept-charset="UTF-8" role="form">\
+                            <fieldset>\
+                                <div class="form-group">\
+                                    <input class="form-control" placeholder="E-mail" name="email" type="text">\
+                                </div>\
+                                <div class="form-group">\
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">\
+                                </div>\
+                                <div class="checkbox">\
+                                    <label>\
+                                        <input name="remember" type="checkbox" value="Remember Me"> Remember Me\
+                                    </label>\
+                                </div>\
+                                <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">\
+                            </fieldset>\
+                        </form>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+');
+
+var templateRegister = _.template('\
+    <!-- -->\
+    <div class="container" id="form-register">\
+        <div class="row">\
+            <div class="col-md-6 col-md-offset-3">\
+                <div class="panel panel-default">\
+                    <div class="panel-heading">\
+                        <h3 class="panel-title">Create account</h3>\
+                    </div>\
+                    <div class="panel-body">\
+                        <form accept-charset="UTF-8" role="form">\
+                            <fieldset>\
+                                <div class="form-group">\
+                                    <input class="form-control" placeholder="E-mail" name="email" type="text">\
+                                </div>\
+                                <div class="form-group">\
+                                    <input class="form-control" placeholder="User name" name="name" type="text">\
+                                </div>\
+                                <div class="form-group">\
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">\
+                                </div>\
+                                <div class="form-group">\
+                                    <input class="form-control" placeholder="Password again" name="password-again" type="password" value="">\
+                                </div>\
+                                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Register">\
+                            </fieldset>\
+                        </form>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+');
