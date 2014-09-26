@@ -20,5 +20,16 @@
         window.currButtonObj.toggleClass("active");
         currObj.toggleClass("active");
         window.currButtonObj = currObj;
-    }
+    };
+
+    window.controller.showRelevantContent = function (currObj) {
+        // The id-fetching method:
+        var currId = currObj[0].id;
+        if (currId === "btn-login") {
+            window.controller.showLogin();
+        }
+        else if (currId === "btn-register") {
+            window.controller.showRegister();
+        }
+    };
 })();
