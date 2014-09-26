@@ -15,4 +15,10 @@
     window.controller.showRegister = function () {
         $("#main-content").html(TETemplates.templateRegister());
     };
+
+    window.controller.activateCurrentButton = function (currObj) {
+        window.currButtonObj.toggleClass("active");
+        currObj.toggleClass("active");
+        window.currButtonObj = currObj;
+    }
 })();
