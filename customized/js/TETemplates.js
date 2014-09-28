@@ -181,18 +181,59 @@
     window.TETemplates.templateBBS = _.template('\
     <!-- -->\
     <div class="container">\
-        <div class="col-md-10 col-md-offset-1">\
-            <div class="list-group">\
-                <div class="col-md-2">\
-                    <div class="square pull-left">\
-                        <img src="http://placehold.it/60/8e44ad/FFF&text=B" alt="" class="" />\
+        <div class="">\
+            <div class="">\
+                <div class="col-md-11 col-md-offset-1">\
+                    <div class="col-md-2">\
+                        <!-- Image -->\
+                        <figure class="pull-left">\
+                           <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" />\
+                        </figure>\
+                    </div>\
+                    <div class="col-md-7">\
+                        <!-- Title and date -->\
+                        <h4 class="list-group-item-heading"> List group heading </h4>\
+                        <p class="list-group-item-text"> Qui diam libris ei, vidisse incorrupte at mel. His euismod salutandi dissentiunt eu. Habeo offendit ea mea. Nostro blandit sea ea, viris timeam molestiae an has. At nisl platonem eum.\
+                            Vel et nonumy gubergren, ad has tota facilis probatus. Ea legere legimus tibique cum, sale tantas vim ea, eu vivendo expetendis vim. Voluptua vituperatoribus et mel, ius no elitr deserunt mediocrem. Mea facilisi torquatos ad.\
+                        </p>\
+                    </div>\
+                    <div class="col-md-1">\
+                        <!-- Views and replies -->\
+                        <h3>14240</h3>\
+                        <p class="list-group-item-text">views</p>\
+                    </div>\
+                    <div class="col-md-1" style="background-color: #416dab;color: #efefef; text-align: center;">\
+                        <!-- Views and replies -->\
+                        <h3>1</h3>\
+                        <p class="list-group-item-text">replies</p>\
                     </div>\
                 </div>\
-                <div class="col-md-4">\
-                    <h4>Bootsnipp</h4>\
-                </div>\
-                <div class="col-md-2">\
-                    <p style="word-wrap: break-word;">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>\
+            </div>\
+            <div class="">\
+                <div class="col-md-11 col-md-offset-1">\
+                    <div class="col-md-2">\
+                        <!-- Image -->\
+                        <figure class="pull-left">\
+                           <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" />\
+                        </figure>\
+                    </div>\
+                    <div class="col-md-7">\
+                        <!-- Title and date -->\
+                        <h4 class="list-group-item-heading"> List group heading </h4>\
+                        <p class="list-group-item-text"> Qui diam libris ei, vidisse incorrupte at mel. His euismod salutandi dissentiunt eu. Habeo offendit ea mea. Nostro blandit sea ea, viris timeam molestiae an has. At nisl platonem eum.\
+                            Vel et nonumy gubergren, ad has tota facilis probatus. Ea legere legimus tibique cum, sale tantas vim ea, eu vivendo expetendis vim. Voluptua vituperatoribus et mel, ius no elitr deserunt mediocrem. Mea facilisi torquatos ad.\
+                        </p>\
+                    </div>\
+                    <div class="col-md-1">\
+                        <!-- Views and replies -->\
+                        <h3>14240</h3>\
+                        <p class="list-group-item-text">views</p>\
+                    </div>\
+                    <div class="col-md-1" style="background-color: #416dab;color: #efefef; text-align: center;">\
+                        <!-- Views and replies -->\
+                        <h3>1</h3>\
+                        <p class="list-group-item-text">replies</p>\
+                    </div>\
                 </div>\
             </div>\
         </div>\
