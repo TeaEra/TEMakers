@@ -8,8 +8,11 @@
 
     window.controller = window.controller || {};
 
+    // CONSTANT
+    var MAIN_CONTENT = "#main-content";
+
     window.controller.showHome = function () {
-        $("#main-content").html(
+        $(MAIN_CONTENT).html(
                 TETemplates.templateProductCarousel()
                 + "<br/>"
                 + TETemplates.templateProductThreeColumns()
@@ -17,11 +20,11 @@
     }
 
     window.controller.showLogin = function () {
-        $("#main-content").html(TETemplates.templateLogin());
+        $(MAIN_CONTENT).html(TETemplates.templateLogin());
     };
 
     window.controller.showRegister = function () {
-        $("#main-content").html(TETemplates.templateRegister());
+        $(MAIN_CONTENT).html(TETemplates.templateRegister());
     };
 
     window.controller.showPreSale = function () {
@@ -37,7 +40,7 @@
     };
 
     window.controller.showBBS = function () {
-        //
+        $(MAIN_CONTENT).html(TETemplates.templateBBS());
     };
 
     window.controller.activateCurrentButton = function (currObj) {

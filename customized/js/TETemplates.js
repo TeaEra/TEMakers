@@ -178,4 +178,24 @@
     </div>\
     ');
 
+    window.TETemplates.templateBBS = _.template('\
+    <!-- -->\
+    <div class="container">\
+        <div class="col-md-10 col-md-offset-1">\
+            <div class="list-group">\
+                <div class="col-md-2">\
+                    <div class="square pull-left">\
+                        <img src="http://placehold.it/60/8e44ad/FFF&text=B" alt="" class="" />\
+                    </div>\
+                </div>\
+                <div class="col-md-4">\
+                    <h4>Bootsnipp</h4>\
+                </div>\
+                <div class="col-md-2">\
+                    <p style="word-wrap: break-word;">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+    ');
 })();
