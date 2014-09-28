@@ -186,9 +186,7 @@
                 <div class="col-md-11 col-md-offset-1">\
                     <div class="col-md-2">\
                         <!-- Image -->\
-                        <figure class="pull-left">\
-                           <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" />\
-                        </figure>\
+                        <img class="img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" />\
                     </div>\
                     <div class="col-md-7">\
                         <!-- Title and date -->\
@@ -213,9 +211,7 @@
                 <div class="col-md-11 col-md-offset-1">\
                     <div class="col-md-2">\
                         <!-- Image -->\
-                        <figure class="pull-left">\
-                           <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" />\
-                        </figure>\
+                        <img class="img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" />\
                     </div>\
                     <div class="col-md-7">\
                         <!-- Title and date -->\
