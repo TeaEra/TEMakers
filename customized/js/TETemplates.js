@@ -181,58 +181,70 @@
     window.TETemplates.templateBBS = _.template('\
     <!-- -->\
     <div class="container">\
-        <div class="">\
-            <div class="">\
-                <div class="col-md-11 col-md-offset-1">\
-                    <div class="col-md-2">\
-                        <!-- Image -->\
-                        <img class="img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" />\
+        <div class="row">\
+            <div class="panel panel-default">\
+                <div class="panel-heading">\
+                    <div class="row">\
+                        <div class="col-md-12 well-sm">最新动态</div>\
+                        <div class="col-md-4">\
+                            <div class="panel panel-default">\
+                                <div class="panel-body">\
+                                    <img class="img-responsible img-rounded" src="" />\
+                                </div>\
+                            </div>\
+                        </div>\
+                        <div class="col-md-4">\
+                            <div class="panel panel-default">\
+                                <div class="panel-body">\
+                                    <img class="img-responsible img-rounded" src="" />\
+                                </div>\
+                            </div>\
+                        </div>\
+                        <div class="col-md-4">\
+                            <div class="panel panel-default">\
+                                <div class="panel-body">\
+                                    <img class="img-responsible img-rounded" src="" />\
+                                </div>\
+                            </div>\
+                        </div>\
                     </div>\
-                    <div class="col-md-7">\
-                        <!-- Title and date -->\
-                        <h4 class="list-group-item-heading"> List group heading </h4>\
-                        <p class="list-group-item-text"> Qui diam libris ei, vidisse incorrupte at mel. His euismod salutandi dissentiunt eu. Habeo offendit ea mea. Nostro blandit sea ea, viris timeam molestiae an has. At nisl platonem eum.\
-                            Vel et nonumy gubergren, ad has tota facilis probatus. Ea legere legimus tibique cum, sale tantas vim ea, eu vivendo expetendis vim. Voluptua vituperatoribus et mel, ius no elitr deserunt mediocrem. Mea facilisi torquatos ad.\
-                        </p>\
-                    </div>\
-                    <div class="col-md-1">\
-                        <!-- Views and replies -->\
-                        <h3>14240</h3>\
-                        <p class="list-group-item-text">views</p>\
-                    </div>\
-                    <div class="col-md-1" style="background-color: #416dab;color: #efefef; text-align: center;">\
-                        <!-- Views and replies -->\
-                        <h3>1</h3>\
-                        <p class="list-group-item-text">replies</p>\
+                </div>\
+                <div class="panel-body">\
+                    <div class="list-group">\
+                        <a class="list-group-item">\
+                            <div class="row">\
+                                <div class="col-md-7">\
+                                    这些昂贵的科技产品真是贵到没朋友\
+                                </div>\
+                                <div class="col-md-2">\
+                                    <img class="img-responsible img-circle" src="" />TeaEra\
+                                </div>\
+                                <div class="col-md-2">\
+                                </div>\
+                                <div class="col-md-1">\
+                                    1\
+                                </div>\
+                            </div>\
+                        </a>\
+                        <a class="list-group-item">\
+                            <div class="row">\
+                                <div class="col-md-7">\
+                                    这些昂贵的科技产品真是贵到没朋友\
+                                </div>\
+                                <div class="col-md-2">\
+                                    <img class="img-responsible img-circle" src="" />TeaEra\
+                                </div>\
+                                <div class="col-md-2">\
+                                </div>\
+                                <div class="col-md-1">\
+                                    1\
+                                </div>\
+                            </div>\
+                        </a>\
                     </div>\
                 </div>\
             </div>\
-            <div class="">\
-                <div class="col-md-11 col-md-offset-1">\
-                    <div class="col-md-2">\
-                        <!-- Image -->\
-                        <img class="img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" />\
-                    </div>\
-                    <div class="col-md-7">\
-                        <!-- Title and date -->\
-                        <h4 class="list-group-item-heading"> List group heading </h4>\
-                        <p class="list-group-item-text"> Qui diam libris ei, vidisse incorrupte at mel. His euismod salutandi dissentiunt eu. Habeo offendit ea mea. Nostro blandit sea ea, viris timeam molestiae an has. At nisl platonem eum.\
-                            Vel et nonumy gubergren, ad has tota facilis probatus. Ea legere legimus tibique cum, sale tantas vim ea, eu vivendo expetendis vim. Voluptua vituperatoribus et mel, ius no elitr deserunt mediocrem. Mea facilisi torquatos ad.\
-                        </p>\
-                    </div>\
-                    <div class="col-md-1">\
-                        <!-- Views and replies -->\
-                        <h3>14240</h3>\
-                        <p class="list-group-item-text">views</p>\
-                    </div>\
-                    <div class="col-md-1" style="background-color: #416dab;color: #efefef; text-align: center;">\
-                        <!-- Views and replies -->\
-                        <h3>1</h3>\
-                        <p class="list-group-item-text">replies</p>\
-                    </div>\
-                </div>\
-            </div>\
-        </div>\
+        <div>\
     </div>\
     ');
 })();
