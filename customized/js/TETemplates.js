@@ -178,7 +178,7 @@
     </div>\
     ');
 
-    window.TETemplates.templateBBS = _.template('\
+    window.TETemplates.templateBBSSection = _.template('\
     <!-- -->\
     <div class="container">\
         <div class="row">\
@@ -189,21 +189,21 @@
                         <div class="col-md-4">\
                             <div class="panel panel-default">\
                                 <div class="panel-body">\
-                                    <img class="img-responsible img-rounded" src="" />\
+                                    <img class="img-responsible img-rounded" src="" alt="img" />\
                                 </div>\
                             </div>\
                         </div>\
                         <div class="col-md-4">\
                             <div class="panel panel-default">\
                                 <div class="panel-body">\
-                                    <img class="img-responsible img-rounded" src="" />\
+                                    <img class="img-responsible img-rounded" src="" alt="img" />\
                                 </div>\
                             </div>\
                         </div>\
                         <div class="col-md-4">\
                             <div class="panel panel-default">\
                                 <div class="panel-body">\
-                                    <img class="img-responsible img-rounded" src="" />\
+                                    <img class="img-responsible img-rounded" src="" alt="img" />\
                                 </div>\
                             </div>\
                         </div>\
@@ -216,13 +216,15 @@
                                 <div class="col-md-7">\
                                     这些昂贵的科技产品真是贵到没朋友\
                                 </div>\
-                                <div class="col-md-2">\
-                                    <img class="img-responsible img-circle" src="" />TeaEra\
-                                </div>\
-                                <div class="col-md-2">\
+                                <div class="col-md-3">\
+                                    <img class="img-responsible img-circle" src="" alt="img" />\
+                                    <strong>TeaEra</strong>\
                                 </div>\
                                 <div class="col-md-1">\
-                                    1\
+                                    3 views\
+                                </div>\
+                                <div class="col-md-1">\
+                                    1 replies\
                                 </div>\
                             </div>\
                         </a>\
@@ -231,13 +233,32 @@
                                 <div class="col-md-7">\
                                     这些昂贵的科技产品真是贵到没朋友\
                                 </div>\
-                                <div class="col-md-2">\
-                                    <img class="img-responsible img-circle" src="" />TeaEra\
-                                </div>\
-                                <div class="col-md-2">\
+                                <div class="col-md-3">\
+                                    <img class="img-responsible img-circle" src="" alt="img" />\
+                                    <strong>TeaEra</strong>\
                                 </div>\
                                 <div class="col-md-1">\
-                                    1\
+                                    3 views\
+                                </div>\
+                                <div class="col-md-1">\
+                                    1 replies\
+                                </div>\
+                            </div>\
+                        </a>\
+                        <a class="list-group-item">\
+                            <div class="row">\
+                                <div class="col-md-7">\
+                                    这些昂贵的科技产品真是贵到没朋友\
+                                </div>\
+                                <div class="col-md-3">\
+                                    <img class="img-responsible img-circle" src="" alt="img" />\
+                                    <strong>TeaEra</strong>\
+                                </div>\
+                                <div class="col-md-1">\
+                                    3 views\
+                                </div>\
+                                <div class="col-md-1">\
+                                    1 replies\
                                 </div>\
                             </div>\
                         </a>\

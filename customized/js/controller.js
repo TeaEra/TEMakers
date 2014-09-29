@@ -40,7 +40,7 @@
     };
 
     window.controller.showBBS = function () {
-        $(MAIN_CONTENT).html(TETemplates.templateBBS());
+        $(MAIN_CONTENT).html(TETemplates.templateBBSSection());
     };
 
     window.controller.activateCurrentButton = function (currObj) {
