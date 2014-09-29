@@ -14,7 +14,7 @@ $(document).ready(
             "#btn-bbs", "#btn-login", "#btn-register"
         ];
 
-        $("#main-content").html(TETemplates.templateProductCarousel() + "<br/>" + TETemplates.templateProductThreeColumns());
+        window.controller.showHome();
 
         for (var i in buttonIdList) {
             var currId = buttonIdList[i];

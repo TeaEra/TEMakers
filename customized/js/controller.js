@@ -16,6 +16,8 @@
                 TETemplates.templateProductCarousel()
                 + "<br/>"
                 + TETemplates.templateProductThreeColumns()
+                + "<br/>"
+                + TETemplates.templateProductThreeColumns()
         );
     }
 
@@ -40,7 +42,10 @@
     };
 
     window.controller.showBBS = function () {
-        $(MAIN_CONTENT).html(TETemplates.templateBBSSection());
+        $(MAIN_CONTENT).html(
+            TETemplates.templateBBSSection()
+            + TETemplates.templateBBSSection()
+        );
     };
 
     window.controller.activateCurrentButton = function (currObj) {
