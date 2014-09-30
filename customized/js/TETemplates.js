@@ -268,4 +268,75 @@
         <div>\
     </div>\
     ');
+
+    window.TETemplates.templateProfileModification = _.template('\
+    <!-- -->\
+    <div class="container" id="form-profile">\
+        <div class="row">\
+            <div class="col-md-10 col-md-offset-1">\
+                <div class="panel panel-default">\
+                    <div class="panel-heading">\
+                        <h3 class="panel-title">Profile</h3>\
+                    </div>\
+                    <div class="panel-body">\
+                        <form accept-charset="UTF-8" role="form">\
+                            <fieldset>\
+                                <div class="form-group">\
+                                    <input class="form-control" placeholder="User name" name="name" type="text" />\
+                                </div>\
+                                <div class="form-group">\
+                                    <input class="form-control" placeholder="Email" name="email" type="text" />\
+                                </div>\
+                                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Save" />\
+                            </fieldset>\
+                        </form>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+    ');
+
+    window.TETemplates.templateProfile = _.template('\
+    <!-- -->\
+    <div class="container" id="form-show-profile">\
+        <div class="row">\
+            <div class="col-md-8 col-md-offset-2">\
+                <div class="panel panel-default">\
+                    <div class="panel-heading">\
+                        <h3 class="panel-title">Profile</h3>\
+                    </div>\
+                    <div class="panel-body">\
+                        <form accept-charset="UTF-8" role="form">\
+                            <fieldset>\
+                                <div class="form-group">\
+                                    <div class="row">\
+                                        <div class="col-md-4">\
+                                            User name:\
+                                        </div>\
+                                        <div class="col-md-4">\
+                                            <label class="label label-default">User name</label>\
+                                        </div>\
+                                    </div>\
+                                </div>\
+                                <div class="form-group">\
+                                    <div class="row">\
+                                        <div class="col-md-4">\
+                                            Email:\
+                                        </div>\
+                                        <div class="col-md-4">\
+                                            <label class="label label-default">Email</label>\
+                                        </div>\
+                                    </div>\
+                                </div>\
+                                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Modify" />\
+                            </fieldset>\
+                        </form>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+    ');
+
 })();

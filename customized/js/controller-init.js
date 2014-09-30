@@ -15,6 +15,7 @@ $(document).ready(
         ];
 
         window.controller.showHome();
+        //window.controller.showProfile();
 
         for (var i in buttonIdList) {
             var currId = buttonIdList[i];

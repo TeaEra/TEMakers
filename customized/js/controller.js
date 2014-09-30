@@ -48,6 +48,18 @@
         );
     };
 
+    window.controller.showProfile = function () {
+        $(MAIN_CONTENT).html(
+           TETemplates.templateProfile()
+        );
+    };
+
+    window.controller.showProfileModification = function () {
+        $(MAIN_CONTENT).html(
+            TETemplates.templateProfileModification()
+        );
+    };
+
     window.controller.activateCurrentButton = function (currObj) {
         window.currButtonObj.toggleClass("active");
         currObj.toggleClass("active");
