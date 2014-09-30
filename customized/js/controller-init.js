@@ -26,6 +26,6 @@ $(document).ready(
             });
         }*/
 
-        var mainContentView = new window.view.MainContentView();
+        var mainContentView = new window.view.OneView();
     }
 );

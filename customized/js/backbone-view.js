@@ -9,18 +9,23 @@
     window.view = window.view || {};
 
     // CONSTANT
+    var BODY = "body";
+    var NAVBAR = "#navbar";
     var MAIN_CONTENT = "#main-content";
 
-    window.view.MainContentView = Backbone.View.extend({
+    window.view.OneView = Backbone.View.extend({
 
-        el: MAIN_CONTENT,
+        el: BODY,
 
         initialize: function () {
             //
+            $(this.el).html(window.TETemplates.templateView());
+            $(NAVBAR).html(window.TETemplates.templateNavbar);
+            window.controller.showHome();
         },
 
         render: function (template) {
-            $(this.el).html(template);
+            //$(this.el).html(template);
         },
 
         events: {

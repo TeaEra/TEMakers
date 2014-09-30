@@ -7,6 +7,57 @@
 
     window.TETemplates = window.TETemplates || {};
 
+    window.TETemplates.templateView = _.template('\
+    <!-- -->\
+    <div class="wrap">\
+        <div id="navbar"></div>\
+        <div id="main-content"></div>\
+    </div>\
+    <br />\
+    <div class="footer">\
+    </div>\
+    ');
+
+    window.TETemplates.templateNavbar = _.template('\
+    <!-- -->\
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">\
+        <div class="container-fluid">\
+        <div class="navbar-header">\
+            <button id="collapsed-navbar" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">\
+                <span class="sr-only">Toggle navigation</span>\
+                <span class="icon-bar"></span>\
+                <span class="icon-bar"></span>\
+                <span class="icon-bar"></span>\
+            </button>\
+            <!-- -->\
+            <a class="navbar-brand" href="javascript:void(0);">\
+                <img alt="Brand" src="" />\
+            </a>\
+        </div>\
+        <!-- Collect the nav links, forms, and other content for toggling -->\
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\
+            <ul class="nav navbar-nav">\
+                <li class="active" id="btn-home"><a href="javascript:void(0);">主页</a></li>\
+                <li id="btn-pre-sale"><a href="javascript:void(0);">预售</a></li>\
+                <li id="btn-shop"><a href="javascript:void(0);">商店</a></li>\
+                <li id="btn-vote"><a href="javascript:void(0);">投票</a></li>\
+                <li id="btn-bbs"><a href="javascript:void(0);">社区</a></li>\
+            </ul>\
+            <form class="navbar-form navbar-left" role="search">\
+                <div class="form-group">\
+                    <input type="text" class="form-control" placeholder="Search">\
+                    </div>\
+                    <button type="submit" class="btn btn-default">Submit</button>\
+                </form>\
+                <ul class="nav navbar-nav navbar-right">\
+                    <li id="btn-login"><a href="javascript:void(0);">登录</a></li>\
+                    <li id="btn-register"><a href="javascript:void(0);">注册</a></li>\
+                </ul>\
+            </div><!-- /.navbar-collapse -->\
+        </div>\
+    </nav>\
+    ');
+
     window.TETemplates.templateProductCarousel = _.template('\
     <!-- -->\
     <div class="container" id="product-carousel">\
