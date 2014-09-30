@@ -7,8 +7,6 @@ $(document).ready(
 
         "use strict";
 
-        window.currButtonObj = $("#btn-home");
-
         /*var buttonIdList = [
             "#btn-home", "#btn-pre-sale", "#btn-shop", "#btn-vote",
             "#btn-bbs", "#btn-login", "#btn-register"
@@ -27,5 +25,6 @@ $(document).ready(
         }*/
 
         var mainContentView = new window.view.OneView();
+        window.currButtonObj = $("#btn-home");
     }
 );

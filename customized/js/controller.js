@@ -61,8 +61,9 @@
         );
     };
 
-    window.controller.activateCurrentButton = function (currObj) {
+    window.controller.activateCurrentButton = function (currId) {
         window.currButtonObj.toggleClass("active");
+        var currObj = $("#" + currId);
         currObj.toggleClass("active");
         window.currButtonObj = currObj;
     };
@@ -70,12 +71,13 @@
     window.controller.collapseNavbar = function () {
         // For bootstrap 3.x;
         // Collapse the navbar;
-        $(COLLAPSED_NAVBAR).click();
+        if ($(COLLAPSED_NAVBAR).is(":visible")) {
+            $(COLLAPSED_NAVBAR).click();
+        }
     };
 
-    window.controller.showRelevantContent = function (currObj) {
-        // The id-fetching method:
-        var currId = currObj[0].id;
+    window.controller.showRelevantContent = function (currId) {
+        //
         if (currId === "btn-login") {
             window.controller.showLogin();
         }
@@ -98,6 +100,7 @@
             window.controller.showBBS();
         }
 
+        window.controller.activateCurrentButton(currId);
         window.controller.collapseNavbar();
     };
 })();

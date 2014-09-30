@@ -29,41 +29,17 @@
         },
 
         events: {
-            'click #btn-home': 'showHome',
-            'click #btn-pre-sale': 'showPreSale',
-            'click #btn-shop': 'showShop',
-            'click #btn-vote': 'showVote',
-            'click #btn-bbs': 'showBBS',
-            'click #btn-register': 'showRegister',
-            'click #btn-login': 'showLogin'
+            'click #btn-home': 'showContent',
+            'click #btn-pre-sale': 'showContent',
+            'click #btn-shop': 'showContent',
+            'click #btn-vote': 'showContent',
+            'click #btn-bbs': 'showContent',
+            'click #btn-register': 'showContent',
+            'click #btn-login': 'showContent'
         },
 
-        showHome: function () {
-            window.controller.showHome()
-        },
-
-        showPreSale: function () {
-            window.controller.showPreSale()
-        },
-
-        showShop: function () {
-            window.controller.showShop()
-        },
-
-        showVote: function () {
-            window.controller.showVote()
-        },
-
-        showBBS: function () {
-            window.controller.showBBS()
-        },
-
-        showRegister: function () {
-            window.controller.showRegister()
-        },
-
-        showLogin: function () {
-            window.controller.showLogin()
+        showContent: function(obj) {
+            window.controller.showRelevantContent(obj.currentTarget.id);
         }
     });
 

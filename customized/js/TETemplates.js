@@ -38,10 +38,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\
             <ul class="nav navbar-nav">\
                 <li class="active" id="btn-home"><a href="javascript:void(0);">主页</a></li>\
-                <li id="btn-pre-sale"><a href="javascript:void(0);">预售</a></li>\
-                <li id="btn-shop"><a href="javascript:void(0);">商店</a></li>\
-                <li id="btn-vote"><a href="javascript:void(0);">投票</a></li>\
-                <li id="btn-bbs"><a href="javascript:void(0);">社区</a></li>\
+                <li class="" id="btn-pre-sale"><a href="javascript:void(0);">预售</a></li>\
+                <li class="" id="btn-shop"><a href="javascript:void(0);">商店</a></li>\
+                <li class="" id="btn-vote"><a href="javascript:void(0);">投票</a></li>\
+                <li class="" id="btn-bbs"><a href="javascript:void(0);">社区</a></li>\
             </ul>\
             <form class="navbar-form navbar-left" role="search">\
                 <div class="form-group">\
