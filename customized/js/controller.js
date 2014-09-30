@@ -10,14 +10,15 @@
 
     // CONSTANT
     var MAIN_CONTENT = "#main-content";
+    var COLLAPSED_NAVBAR = "#collapsed-navbar";
 
     window.controller.showHome = function () {
         $(MAIN_CONTENT).html(
-                TETemplates.templateProductCarousel()
-                + "<br/>"
-                + TETemplates.templateProductThreeColumns()
-                + "<br/>"
-                + TETemplates.templateProductThreeColumns()
+            TETemplates.templateProductCarousel()
+            + "<br/>"
+            + TETemplates.templateProductThreeColumns()
+            + "<br/>"
+            + TETemplates.templateProductThreeColumns()
         );
     }
 
@@ -66,6 +67,12 @@
         window.currButtonObj = currObj;
     };
 
+    window.controller.collapseNavbar = function () {
+        // For bootstrap 3.x;
+        // Collapse the navbar;
+        $(COLLAPSED_NAVBAR).click();
+    };
+
     window.controller.showRelevantContent = function (currObj) {
         // The id-fetching method:
         var currId = currObj[0].id;
@@ -90,5 +97,7 @@
         else if (currId === "btn-bbs") {
             window.controller.showBBS();
         }
+
+        window.controller.collapseNavbar();
     };
 })();
