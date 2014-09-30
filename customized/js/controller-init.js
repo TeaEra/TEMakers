@@ -9,7 +9,7 @@ $(document).ready(
 
         window.currButtonObj = $("#btn-home");
 
-        var buttonIdList = [
+        /*var buttonIdList = [
             "#btn-home", "#btn-pre-sale", "#btn-shop", "#btn-vote",
             "#btn-bbs", "#btn-login", "#btn-register"
         ];
@@ -24,6 +24,8 @@ $(document).ready(
                 window.controller.showRelevantContent($(this));
                 window.controller.activateCurrentButton($(this));
             });
-        }
+        }*/
+
+        var mainContentView = new window.view.MainContentView();
     }
 );
