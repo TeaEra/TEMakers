@@ -61,8 +61,8 @@
 
   // Turn on `emulateJSON` to support legacy servers that can't deal with direct
   // `application/json` requests ... will encode the body as
-  // `application/x-www-form-urlencoded` instead and will send the model in a
-  // form param named `model`.
+  // `application/x-www-form-urlencoded` instead and will send the TEModel in a
+  // form param named `TEModel`.
   Backbone.emulateJSON = false;
 
   // Backbone.Events
@@ -243,14 +243,14 @@
   // A discrete chunk of data and a bunch of useful, related methods for
   // performing computations and transformations on that data.
 
-  // Create a new model with the specified attributes. A client id (`cid`)
+  // Create a new TEModel with the specified attributes. A client id (`cid`)
   // is automatically generated and assigned for you.
   var Model = Backbone.Model = function(attributes, options) {
     var attrs = attributes || {};
     options || (options = {});
     this.cid = _.uniqueId('c');
     this.attributes = {};
-    if (options.collection) this.collection = options.collection;
+    if (options.TECollection) this.TECollection = options.TECollection;
     if (options.parse) attrs = this.parse(attrs, options) || {};
     attrs = _.defaults({}, attrs, _.result(this, 'defaults'));
     this.set(attrs, options);
@@ -275,13 +275,13 @@
     // initialization logic.
     initialize: function(){},
 
-    // Return a copy of the model's `attributes` object.
+    // Return a copy of the TEModel's `attributes` object.
     toJSON: function(options) {
       return _.clone(this.attributes);
     },
 
     // Proxy `Backbone.sync` by default -- but override this if you need
-    // custom syncing semantics for *this* particular model.
+    // custom syncing semantics for *this* particular TEModel.
     sync: function() {
       return Backbone.sync.apply(this, arguments);
     },
@@ -302,8 +302,8 @@
       return this.get(attr) != null;
     },
 
-    // Set a hash of model attributes on the object, firing `"change"`. This is
-    // the core primitive operation of a model, updating the data and notifying
+    // Set a hash of TEModel attributes on the object, firing `"change"`. This is
+    // the core primitive operation of a TEModel, updating the data and notifying
     // anyone who needs to know about the change in state. The heart of the beast.
     set: function(key, val, options) {
       var attr, attrs, unset, changes, silent, changing, prev, current;
@@ -373,20 +373,20 @@
       return this;
     },
 
-    // Remove an attribute from the model, firing `"change"`. `unset` is a noop
+    // Remove an attribute from the TEModel, firing `"change"`. `unset` is a noop
     // if the attribute doesn't exist.
     unset: function(attr, options) {
       return this.set(attr, void 0, _.extend({}, options, {unset: true}));
     },
 
-    // Clear all attributes on the model, firing `"change"`.
+    // Clear all attributes on the TEModel, firing `"change"`.
     clear: function(options) {
       var attrs = {};
       for (var key in this.attributes) attrs[key] = void 0;
       return this.set(attrs, _.extend({}, options, {unset: true}));
     },
 
-    // Determine if the model has changed since the last `"change"` event.
+    // Determine if the TEModel has changed since the last `"change"` event.
     // If you specify an attribute name, determine if that attribute has changed.
     hasChanged: function(attr) {
       if (attr == null) return !_.isEmpty(this.changed);
@@ -395,9 +395,9 @@
 
     // Return an object containing all the attributes that have changed, or
     // false if there are no changed attributes. Useful for determining what
-    // parts of a view need to be updated and/or what attributes need to be
+    // parts of a TEView need to be updated and/or what attributes need to be
     // persisted to the server. Unset attributes will be set to undefined.
-    // You can also pass an attributes object to diff against the model,
+    // You can also pass an attributes object to diff against the TEModel,
     // determining if there *would be* a change.
     changedAttributes: function(diff) {
       if (!diff) return this.hasChanged() ? _.clone(this.changed) : false;
@@ -417,14 +417,14 @@
       return this._previousAttributes[attr];
     },
 
-    // Get all of the attributes of the model at the time of the previous
+    // Get all of the attributes of the TEModel at the time of the previous
     // `"change"` event.
     previousAttributes: function() {
       return _.clone(this._previousAttributes);
     },
 
-    // Fetch the model from the server. If the server's representation of the
-    // model differs from its current attributes, they will be overridden,
+    // Fetch the TEModel from the server. If the server's representation of the
+    // TEModel differs from its current attributes, they will be overridden,
     // triggering a `"change"` event.
     fetch: function(options) {
       options = options ? _.clone(options) : {};
@@ -432,16 +432,16 @@
       var model = this;
       var success = options.success;
       options.success = function(resp) {
-        if (!model.set(model.parse(resp, options), options)) return false;
-        if (success) success(model, resp, options);
-        model.trigger('sync', model, resp, options);
+        if (!TEModel.set(TEModel.parse(resp, options), options)) return false;
+        if (success) success(TEModel, resp, options);
+        TEModel.trigger('sync', TEModel, resp, options);
       };
       wrapError(this, options);
       return this.sync('read', this, options);
     },
 
-    // Set a hash of model attributes, and sync the model to the server.
-    // If the server returns an attributes hash that differs, the model's
+    // Set a hash of TEModel attributes, and sync the TEModel to the server.
+    // If the server returns an attributes hash that differs, the TEModel's
     // state will be `set` again.
     save: function(key, val, options) {
       var attrs, method, xhr, attributes = this.attributes;
@@ -458,7 +458,7 @@
 
       // If we're not waiting and attributes exist, save acts as
       // `set(attr).save(null, opts)` with validation. Otherwise, check if
-      // the model will be valid when the attributes, if any, are set.
+      // the TEModel will be valid when the attributes, if any, are set.
       if (attrs && !options.wait) {
         if (!this.set(attrs, options)) return false;
       } else {
@@ -477,14 +477,14 @@
       var success = options.success;
       options.success = function(resp) {
         // Ensure attributes are restored during synchronous saves.
-        model.attributes = attributes;
-        var serverAttrs = model.parse(resp, options);
+        TEModel.attributes = attributes;
+        var serverAttrs = TEModel.parse(resp, options);
         if (options.wait) serverAttrs = _.extend(attrs || {}, serverAttrs);
-        if (_.isObject(serverAttrs) && !model.set(serverAttrs, options)) {
+        if (_.isObject(serverAttrs) && !TEModel.set(serverAttrs, options)) {
           return false;
         }
-        if (success) success(model, resp, options);
-        model.trigger('sync', model, resp, options);
+        if (success) success(TEModel, resp, options);
+        TEModel.trigger('sync', TEModel, resp, options);
       };
       wrapError(this, options);
 
@@ -498,8 +498,8 @@
       return xhr;
     },
 
-    // Destroy this model on the server if it was already persisted.
-    // Optimistically removes the model from its collection, if it has one.
+    // Destroy this TEModel on the server if it was already persisted.
+    // Optimistically removes the TEModel from its TECollection, if it has one.
     // If `wait: true` is passed, waits for the server to respond before removal.
     destroy: function(options) {
       options = options ? _.clone(options) : {};
@@ -507,13 +507,13 @@
       var success = options.success;
 
       var destroy = function() {
-        model.trigger('destroy', model, model.collection, options);
+        TEModel.trigger('destroy', TEModel, TEModel.TECollection, options);
       };
 
       options.success = function(resp) {
-        if (options.wait || model.isNew()) destroy();
-        if (success) success(model, resp, options);
-        if (!model.isNew()) model.trigger('sync', model, resp, options);
+        if (options.wait || TEModel.isNew()) destroy();
+        if (success) success(TEModel, resp, options);
+        if (!TEModel.isNew()) TEModel.trigger('sync', TEModel, resp, options);
       };
 
       if (this.isNew()) {
@@ -527,40 +527,40 @@
       return xhr;
     },
 
-    // Default URL for the model's representation on the server -- if you're
+    // Default URL for the TEModel's representation on the server -- if you're
     // using Backbone's restful methods, override this to change the endpoint
     // that will be called.
     url: function() {
       var base =
         _.result(this, 'urlRoot') ||
-        _.result(this.collection, 'url') ||
+        _.result(this.TECollection, 'url') ||
         urlError();
       if (this.isNew()) return base;
       return base.replace(/([^\/])$/, '$1/') + encodeURIComponent(this.id);
     },
 
     // **parse** converts a response into the hash of attributes to be `set` on
-    // the model. The default implementation is just to pass the response along.
+    // the TEModel. The default implementation is just to pass the response along.
     parse: function(resp, options) {
       return resp;
     },
 
-    // Create a new model with identical attributes to this one.
+    // Create a new TEModel with identical attributes to this one.
     clone: function() {
       return new this.constructor(this.attributes);
     },
 
-    // A model is new if it has never been saved to the server, and lacks an id.
+    // A TEModel is new if it has never been saved to the server, and lacks an id.
     isNew: function() {
       return !this.has(this.idAttribute);
     },
 
-    // Check if the model is currently in a valid state.
+    // Check if the TEModel is currently in a valid state.
     isValid: function(options) {
       return this._validate({}, _.extend(options || {}, { validate: true }));
     },
 
-    // Run validation against the next complete set of model attributes,
+    // Run validation against the next complete set of TEModel attributes,
     // returning `true` if all is well. Otherwise, fire an `"invalid"` event.
     _validate: function(attrs, options) {
       if (!options.validate || !this.validate) return true;
@@ -590,17 +590,17 @@
 
   // If models tend to represent a single row of data, a Backbone Collection is
   // more analagous to a table full of data ... or a small slice or page of that
-  // table, or a collection of rows that belong together for a particular reason
+  // table, or a TECollection of rows that belong together for a particular reason
   // -- all of the messages in this particular folder, all of the documents
   // belonging to this particular author, and so on. Collections maintain
   // indexes of their models, both in order, and for lookup by `id`.
 
-  // Create a new **Collection**, perhaps to contain a specific type of `model`.
+  // Create a new **Collection**, perhaps to contain a specific type of `TEModel`.
   // If a `comparator` is specified, the Collection will maintain
   // its models in sort order, as they're added and removed.
   var Collection = Backbone.Collection = function(models, options) {
     options || (options = {});
-    if (options.model) this.model = options.model;
+    if (options.TEModel) this.TEModel = options.TEModel;
     if (options.comparator !== void 0) this.comparator = options.comparator;
     this._reset();
     this.initialize.apply(this, arguments);
@@ -614,9 +614,9 @@
   // Define the Collection's inheritable methods.
   _.extend(Collection.prototype, Events, {
 
-    // The default model for a collection is just a **Backbone.Model**.
+    // The default TEModel for a TECollection is just a **Backbone.Model**.
     // This should be overridden in most cases.
-    model: Model,
+    TEModel: Model,
 
     // Initialize is an empty function by default. Override it with your own
     // initialization logic.
@@ -625,7 +625,7 @@
     // The JSON representation of a Collection is an array of the
     // models' attributes.
     toJSON: function(options) {
-      return this.map(function(model){ return model.toJSON(options); });
+      return this.map(function(model){ return TEModel.toJSON(options); });
     },
 
     // Proxy `Backbone.sync` by default.
@@ -633,38 +633,38 @@
       return Backbone.sync.apply(this, arguments);
     },
 
-    // Add a model, or list of models to the set.
+    // Add a TEModel, or list of models to the set.
     add: function(models, options) {
       return this.set(models, _.extend({merge: false}, options, addOptions));
     },
 
-    // Remove a model, or a list of models from the set.
+    // Remove a TEModel, or a list of models from the set.
     remove: function(models, options) {
       var singular = !_.isArray(models);
       models = singular ? [models] : _.clone(models);
       options || (options = {});
       var i, l, index, model;
       for (i = 0, l = models.length; i < l; i++) {
-        model = models[i] = this.get(models[i]);
-        if (!model) continue;
-        delete this._byId[model.id];
-        delete this._byId[model.cid];
-        index = this.indexOf(model);
+        TEModel = models[i] = this.get(models[i]);
+        if (!TEModel) continue;
+        delete this._byId[TEModel.id];
+        delete this._byId[TEModel.cid];
+        index = this.indexOf(TEModel);
         this.models.splice(index, 1);
         this.length--;
         if (!options.silent) {
           options.index = index;
-          model.trigger('remove', model, this, options);
+          TEModel.trigger('remove', TEModel, this, options);
         }
-        this._removeReference(model, options);
+        this._removeReference(TEModel, options);
       }
       return singular ? models[0] : models;
     },
 
-    // Update a collection by `set`-ing a new list of models, adding new ones,
+    // Update a TECollection by `set`-ing a new list of models, adding new ones,
     // removing models that are no longer present, and merging models that
-    // already exist in the collection, as necessary. Similar to **Model#set**,
-    // the core operation for updating the data contained by the collection.
+    // already exist in the TECollection, as necessary. Similar to **Model#set**,
+    // the core operation for updating the data contained by the TECollection.
     set: function(models, options) {
       options = _.defaults({}, options, setOptions);
       if (options.parse) models = this.parse(models, options);
@@ -672,53 +672,53 @@
       models = singular ? (models ? [models] : []) : _.clone(models);
       var i, l, id, model, attrs, existing, sort;
       var at = options.at;
-      var targetModel = this.model;
+      var targetModel = this.TEModel;
       var sortable = this.comparator && (at == null) && options.sort !== false;
       var sortAttr = _.isString(this.comparator) ? this.comparator : null;
       var toAdd = [], toRemove = [], modelMap = {};
       var add = options.add, merge = options.merge, remove = options.remove;
       var order = !sortable && add && remove ? [] : false;
 
-      // Turn bare objects into model references, and prevent invalid models
+      // Turn bare objects into TEModel references, and prevent invalid models
       // from being added.
       for (i = 0, l = models.length; i < l; i++) {
         attrs = models[i] || {};
         if (attrs instanceof Model) {
-          id = model = attrs;
+          id = TEModel = attrs;
         } else {
           id = attrs[targetModel.prototype.idAttribute || 'id'];
         }
 
         // If a duplicate is found, prevent it from being added and
-        // optionally merge it into the existing model.
+        // optionally merge it into the existing TEModel.
         if (existing = this.get(id)) {
           if (remove) modelMap[existing.cid] = true;
           if (merge) {
-            attrs = attrs === model ? model.attributes : attrs;
+            attrs = attrs === TEModel ? TEModel.attributes : attrs;
             if (options.parse) attrs = existing.parse(attrs, options);
             existing.set(attrs, options);
             if (sortable && !sort && existing.hasChanged(sortAttr)) sort = true;
           }
           models[i] = existing;
 
-        // If this is a new, valid model, push it to the `toAdd` list.
+        // If this is a new, valid TEModel, push it to the `toAdd` list.
         } else if (add) {
-          model = models[i] = this._prepareModel(attrs, options);
-          if (!model) continue;
-          toAdd.push(model);
-          this._addReference(model, options);
+          TEModel = models[i] = this._prepareModel(attrs, options);
+          if (!TEModel) continue;
+          toAdd.push(TEModel);
+          this._addReference(TEModel, options);
         }
 
         // Do not add multiple models with the same `id`.
-        model = existing || model;
-        if (order && (model.isNew() || !modelMap[model.id])) order.push(model);
-        modelMap[model.id] = true;
+        TEModel = existing || TEModel;
+        if (order && (TEModel.isNew() || !modelMap[TEModel.id])) order.push(TEModel);
+        modelMap[TEModel.id] = true;
       }
 
       // Remove nonexistent models if appropriate.
       if (remove) {
         for (i = 0, l = this.length; i < l; ++i) {
-          if (!modelMap[(model = this.models[i]).cid]) toRemove.push(model);
+          if (!modelMap[(TEModel = this.models[i]).cid]) toRemove.push(TEModel);
         }
         if (toRemove.length) this.remove(toRemove, options);
       }
@@ -740,18 +740,18 @@
         }
       }
 
-      // Silently sort the collection if appropriate.
+      // Silently sort the TECollection if appropriate.
       if (sort) this.sort({silent: true});
 
       // Unless silenced, it's time to fire all appropriate add/sort events.
       if (!options.silent) {
         for (i = 0, l = toAdd.length; i < l; i++) {
-          (model = toAdd[i]).trigger('add', model, this, options);
+          (TEModel = toAdd[i]).trigger('add', TEModel, this, options);
         }
         if (sort || (order && order.length)) this.trigger('sort', this, options);
       }
 
-      // Return the added (or merged) model (or models).
+      // Return the added (or merged) TEModel (or models).
       return singular ? models[0] : models;
     },
 
@@ -771,42 +771,42 @@
       return models;
     },
 
-    // Add a model to the end of the collection.
+    // Add a TEModel to the end of the TECollection.
     push: function(model, options) {
-      return this.add(model, _.extend({at: this.length}, options));
+      return this.add(TEModel, _.extend({at: this.length}, options));
     },
 
-    // Remove a model from the end of the collection.
+    // Remove a TEModel from the end of the TECollection.
     pop: function(options) {
       var model = this.at(this.length - 1);
-      this.remove(model, options);
-      return model;
+      this.remove(TEModel, options);
+      return TEModel;
     },
 
-    // Add a model to the beginning of the collection.
+    // Add a TEModel to the beginning of the TECollection.
     unshift: function(model, options) {
-      return this.add(model, _.extend({at: 0}, options));
+      return this.add(TEModel, _.extend({at: 0}, options));
     },
 
-    // Remove a model from the beginning of the collection.
+    // Remove a TEModel from the beginning of the TECollection.
     shift: function(options) {
       var model = this.at(0);
-      this.remove(model, options);
-      return model;
+      this.remove(TEModel, options);
+      return TEModel;
     },
 
-    // Slice out a sub-array of models from the collection.
+    // Slice out a sub-array of models from the TECollection.
     slice: function() {
       return slice.apply(this.models, arguments);
     },
 
-    // Get a model from the set by id.
+    // Get a TEModel from the set by id.
     get: function(obj) {
       if (obj == null) return void 0;
       return this._byId[obj] || this._byId[obj.id] || this._byId[obj.cid];
     },
 
-    // Get the model at the given index.
+    // Get the TEModel at the given index.
     at: function(index) {
       return this.models[index];
     },
@@ -817,19 +817,19 @@
       if (_.isEmpty(attrs)) return first ? void 0 : [];
       return this[first ? 'find' : 'filter'](function(model) {
         for (var key in attrs) {
-          if (attrs[key] !== model.get(key)) return false;
+          if (attrs[key] !== TEModel.get(key)) return false;
         }
         return true;
       });
     },
 
-    // Return the first model with matching attributes. Useful for simple cases
+    // Return the first TEModel with matching attributes. Useful for simple cases
     // of `find`.
     findWhere: function(attrs) {
       return this.where(attrs, true);
     },
 
-    // Force the collection to re-sort itself. You don't need to call this under
+    // Force the TECollection to re-sort itself. You don't need to call this under
     // normal circumstances, as the set will maintain sort order as each item
     // is added.
     sort: function(options) {
@@ -847,13 +847,13 @@
       return this;
     },
 
-    // Pluck an attribute from each model in the collection.
+    // Pluck an attribute from each TEModel in the TECollection.
     pluck: function(attr) {
       return _.invoke(this.models, 'get', attr);
     },
 
-    // Fetch the default set of models for this collection, resetting the
-    // collection when they arrive. If `reset: true` is passed, the response
+    // Fetch the default set of models for this TECollection, resetting the
+    // TECollection when they arrive. If `reset: true` is passed, the response
     // data will be passed through the `reset` method instead of `set`.
     fetch: function(options) {
       options = options ? _.clone(options) : {};
@@ -862,43 +862,43 @@
       var collection = this;
       options.success = function(resp) {
         var method = options.reset ? 'reset' : 'set';
-        collection[method](resp, options);
-        if (success) success(collection, resp, options);
-        collection.trigger('sync', collection, resp, options);
+        TECollection[method](resp, options);
+        if (success) success(TECollection, resp, options);
+        TECollection.trigger('sync', TECollection, resp, options);
       };
       wrapError(this, options);
       return this.sync('read', this, options);
     },
 
-    // Create a new instance of a model in this collection. Add the model to the
-    // collection immediately, unless `wait: true` is passed, in which case we
+    // Create a new instance of a TEModel in this TECollection. Add the TEModel to the
+    // TECollection immediately, unless `wait: true` is passed, in which case we
     // wait for the server to agree.
     create: function(model, options) {
       options = options ? _.clone(options) : {};
-      if (!(model = this._prepareModel(model, options))) return false;
-      if (!options.wait) this.add(model, options);
+      if (!(TEModel = this._prepareModel(TEModel, options))) return false;
+      if (!options.wait) this.add(TEModel, options);
       var collection = this;
       var success = options.success;
       options.success = function(model, resp) {
-        if (options.wait) collection.add(model, options);
-        if (success) success(model, resp, options);
+        if (options.wait) TECollection.add(TEModel, options);
+        if (success) success(TEModel, resp, options);
       };
-      model.save(null, options);
-      return model;
+      TEModel.save(null, options);
+      return TEModel;
     },
 
     // **parse** converts a response into a list of models to be added to the
-    // collection. The default implementation is just to pass it through.
+    // TECollection. The default implementation is just to pass it through.
     parse: function(resp, options) {
       return resp;
     },
 
-    // Create a new collection with an identical list of models as this one.
+    // Create a new TECollection with an identical list of models as this one.
     clone: function() {
       return new this.constructor(this.models);
     },
 
-    // Private method to reset all internal state. Called when the collection
+    // Private method to reset all internal state. Called when the TECollection
     // is first initialized or reset.
     _reset: function() {
       this.length = 0;
@@ -906,42 +906,42 @@
       this._byId  = {};
     },
 
-    // Prepare a hash of attributes (or other model) to be added to this
-    // collection.
+    // Prepare a hash of attributes (or other TEModel) to be added to this
+    // TECollection.
     _prepareModel: function(attrs, options) {
       if (attrs instanceof Model) return attrs;
       options = options ? _.clone(options) : {};
-      options.collection = this;
-      var model = new this.model(attrs, options);
-      if (!model.validationError) return model;
-      this.trigger('invalid', this, model.validationError, options);
+      options.TECollection = this;
+      var model = new this.TEModel(attrs, options);
+      if (!TEModel.validationError) return TEModel;
+      this.trigger('invalid', this, TEModel.validationError, options);
       return false;
     },
 
-    // Internal method to create a model's ties to a collection.
+    // Internal method to create a TEModel's ties to a TECollection.
     _addReference: function(model, options) {
-      this._byId[model.cid] = model;
-      if (model.id != null) this._byId[model.id] = model;
-      if (!model.collection) model.collection = this;
-      model.on('all', this._onModelEvent, this);
+      this._byId[TEModel.cid] = TEModel;
+      if (TEModel.id != null) this._byId[TEModel.id] = TEModel;
+      if (!TEModel.TECollection) TEModel.TECollection = this;
+      TEModel.on('all', this._onModelEvent, this);
     },
 
-    // Internal method to sever a model's ties to a collection.
+    // Internal method to sever a TEModel's ties to a TECollection.
     _removeReference: function(model, options) {
-      if (this === model.collection) delete model.collection;
-      model.off('all', this._onModelEvent, this);
+      if (this === TEModel.TECollection) delete TEModel.TECollection;
+      TEModel.off('all', this._onModelEvent, this);
     },
 
-    // Internal method called every time a model in the set fires an event.
+    // Internal method called every time a TEModel in the set fires an event.
     // Sets need to update their indexes when models change ids. All other
     // events simply proxy through. "add" and "remove" events that originate
     // in other collections are ignored.
     _onModelEvent: function(event, model, collection, options) {
-      if ((event === 'add' || event === 'remove') && collection !== this) return;
-      if (event === 'destroy') this.remove(model, options);
-      if (model && event === 'change:' + model.idAttribute) {
-        delete this._byId[model.previous(model.idAttribute)];
-        if (model.id != null) this._byId[model.id] = model;
+      if ((event === 'add' || event === 'remove') && TECollection !== this) return;
+      if (event === 'destroy') this.remove(TEModel, options);
+      if (TEModel && event === 'change:' + TEModel.idAttribute) {
+        delete this._byId[TEModel.previous(TEModel.idAttribute)];
+        if (TEModel.id != null) this._byId[TEModel.id] = TEModel;
       }
       this.trigger.apply(this, arguments);
     }
@@ -974,7 +974,7 @@
   _.each(attributeMethods, function(method) {
     Collection.prototype[method] = function(value, context) {
       var iterator = _.isFunction(value) ? value : function(model) {
-        return model.get(value);
+        return TEModel.get(value);
       };
       return _[method](this.models, iterator, context);
     };
@@ -988,13 +988,13 @@
   // DOM. This might be a single item, an entire list, a sidebar or panel, or
   // even the surrounding frame which wraps your whole app. Defining a chunk of
   // UI as a **View** allows you to define your DOM events declaratively, without
-  // having to worry about render order ... and makes it easy for the view to
+  // having to worry about render order ... and makes it easy for the TEView to
   // react to specific changes in the state of your models.
 
   // Creating a Backbone.View creates its initial element outside of the DOM,
   // if an existing element is not provided...
   var View = Backbone.View = function(options) {
-    this.cid = _.uniqueId('view');
+    this.cid = _.uniqueId('TEView');
     options || (options = {});
     _.extend(this, _.pick(options, viewOptions));
     this._ensureElement();
@@ -1005,8 +1005,8 @@
   // Cached regex to split keys for `delegate`.
   var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 
-  // List of view options to be merged as properties.
-  var viewOptions = ['model', 'collection', 'el', 'id', 'attributes', 'className', 'tagName', 'events'];
+  // List of TEView options to be merged as properties.
+  var viewOptions = ['TEModel', 'TECollection', 'el', 'id', 'attributes', 'className', 'tagName', 'events'];
 
   // Set up all inheritable **Backbone.View** properties and methods.
   _.extend(View.prototype, Events, {
@@ -1015,7 +1015,7 @@
     tagName: 'div',
 
     // jQuery delegate for element lookup, scoped to DOM elements within the
-    // current view. This should be preferred to global lookups where possible.
+    // current TEView. This should be preferred to global lookups where possible.
     $: function(selector) {
       return this.$el.find(selector);
     },
@@ -1024,14 +1024,14 @@
     // initialization logic.
     initialize: function(){},
 
-    // **render** is the core function that your view should override, in order
+    // **render** is the core function that your TEView should override, in order
     // to populate its element (`this.el`), with the appropriate HTML. The
     // convention is for **render** to always return `this`.
     render: function() {
       return this;
     },
 
-    // Remove this view by taking the element out of the DOM, and removing any
+    // Remove this TEView by taking the element out of the DOM, and removing any
     // applicable Backbone.Events listeners.
     remove: function() {
       this.$el.remove();
@@ -1039,7 +1039,7 @@
       return this;
     },
 
-    // Change the view's element (`this.el` property), including event
+    // Change the TEView's element (`this.el` property), including event
     // re-delegation.
     setElement: function(element, delegate) {
       if (this.$el) this.undelegateEvents();
@@ -1059,7 +1059,7 @@
     //       'click .open':       function(e) { ... }
     //     }
     //
-    // pairs. Callbacks will be bound to the view, with `this` set properly.
+    // pairs. Callbacks will be bound to the TEView, with `this` set properly.
     // Uses event delegation for efficiency.
     // Omitting the selector binds the event to `this.el`.
     // This only works for delegate-able events: not `focus`, `blur`, and
@@ -1085,7 +1085,7 @@
       return this;
     },
 
-    // Clears all callbacks previously bound to the view with `delegateEvents`.
+    // Clears all callbacks previously bound to the TEView with `delegateEvents`.
     // You usually don't need to use this, but may wish to if you have multiple
     // Backbone views attached to the same DOM element.
     undelegateEvents: function() {
@@ -1116,8 +1116,8 @@
 
   // Override this function to change the manner in which Backbone persists
   // models to the server. You will be passed the type of request, and the
-  // model in question. By default, makes a RESTful Ajax request
-  // to the model's `url()`. Some possible customizations could be:
+  // TEModel in question. By default, makes a RESTful Ajax request
+  // to the TEModel's `url()`. Some possible customizations could be:
   //
   // * Use `setTimeout` to batch rapid-fire updates into a single request.
   // * Send up the models as XML instead of JSON.
@@ -1126,7 +1126,7 @@
   // Turn on `Backbone.emulateHTTP` in order to send `PUT` and `DELETE` requests
   // as `POST`, with a `_method` parameter containing the true HTTP method,
   // as well as all requests with the body as `application/x-www-form-urlencoded`
-  // instead of `application/json` with the model in a param named `model`.
+  // instead of `application/json` with the TEModel in a param named `TEModel`.
   // Useful when interfacing with server-side languages like **PHP** that make
   // it difficult to read the body of `PUT` requests.
   Backbone.sync = function(method, model, options) {
@@ -1143,13 +1143,13 @@
 
     // Ensure that we have a URL.
     if (!options.url) {
-      params.url = _.result(model, 'url') || urlError();
+      params.url = _.result(TEModel, 'url') || urlError();
     }
 
     // Ensure that we have the appropriate request data.
-    if (options.data == null && model && (method === 'create' || method === 'update' || method === 'patch')) {
+    if (options.data == null && TEModel && (method === 'create' || method === 'update' || method === 'patch')) {
       params.contentType = 'application/json';
-      params.data = JSON.stringify(options.attrs || model.toJSON(options));
+      params.data = JSON.stringify(options.attrs || TEModel.toJSON(options));
     }
 
     // For older servers, emulate JSON by encoding the request into an HTML-form.
@@ -1186,7 +1186,7 @@
 
     // Make the request, allowing the user to override any Ajax options.
     var xhr = options.xhr = Backbone.ajax(_.extend(params, options));
-    model.trigger('request', model, xhr, options);
+    TEModel.trigger('request', TEModel, xhr, options);
     return xhr;
   };
 
@@ -1586,7 +1586,7 @@
     return child;
   };
 
-  // Set up inheritance for the model, collection, router, view and history.
+  // Set up inheritance for the TEModel, TECollection, router, TEView and history.
   Model.extend = Collection.extend = Router.extend = View.extend = History.extend = extend;
 
   // Throw an error when a URL is needed, and none is supplied.
@@ -1598,8 +1598,8 @@
   var wrapError = function(model, options) {
     var error = options.error;
     options.error = function(resp) {
-      if (error) error(model, resp, options);
-      model.trigger('error', model, resp, options);
+      if (error) error(TEModel, resp, options);
+      TEModel.trigger('error', TEModel, resp, options);
     };
   };
 

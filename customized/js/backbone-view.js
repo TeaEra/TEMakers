@@ -6,14 +6,14 @@
 
     "use strict";
 
-    window.view = window.view || {};
+    window.TEView = window.TEView || {};
 
     // CONSTANT
     var BODY = "body";
     var NAVBAR = "#navbar";
     var MAIN_CONTENT = "#main-content";
 
-    window.view.OneView = Backbone.View.extend({
+    window.TEView.OneView = Backbone.View.extend({
 
         el: BODY,
 

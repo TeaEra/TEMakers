@@ -90,7 +90,7 @@ jQuery.Callbacks = function( options ) {
 		},
 		// Actual Callbacks object
 		self = {
-			// Add a callback or a collection of callbacks to the list
+			// Add a callback or a TECollection of callbacks to the list
 			add: function() {
 				if ( list ) {
 					// First, we save the current length

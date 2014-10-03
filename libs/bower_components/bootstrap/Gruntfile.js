@@ -55,9 +55,9 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          jshintrc: 'js/tests/unit/.jshintrc'
+          jshintrc: 'js/Tests/unit/.jshintrc'
         },
-        src: 'js/tests/unit/*.js'
+        src: 'js/Tests/unit/*.js'
       },
       assets: {
         src: ['docs/assets/js/_src/*.js', 'docs/assets/js/*.js', '!docs/assets/js/*.min.js']
@@ -141,9 +141,9 @@ module.exports = function (grunt) {
 
     qunit: {
       options: {
-        inject: 'js/tests/unit/phantom.js'
+        inject: 'js/Tests/unit/phantom.js'
       },
-      files: 'js/tests/index.html'
+      files: 'js/Tests/index.html'
     },
 
     less: {
@@ -380,7 +380,7 @@ module.exports = function (grunt) {
           build: process.env.TRAVIS_JOB_ID,
           concurrency: 10,
           maxRetries: 3,
-          urls: ['http://127.0.0.1:3000/js/tests/index.html'],
+          urls: ['http://127.0.0.1:3000/js/Tests/index.html'],
           browsers: grunt.file.readYAML('grunt/sauce_browsers.yml')
         }
       }
@@ -410,7 +410,7 @@ module.exports = function (grunt) {
 
   // Test task.
   var testSubtasks = [];
-  // Skip core tests if running a different subset of the test suite
+  // Skip core Tests if running a different subset of the test suite
   if (runSubset('core')) {
     testSubtasks = testSubtasks.concat(['dist-css', 'csslint', 'jshint', 'jscs', 'qunit', 'build-customizer-html']);
   }
@@ -420,7 +420,7 @@ module.exports = function (grunt) {
       isUndefOrNonZero(process.env.TWBS_DO_VALIDATOR)) {
     testSubtasks.push('validate-html');
   }
-  // Only run Sauce Labs tests if there's a Sauce access key
+  // Only run Sauce Labs Tests if there's a Sauce access key
   if (typeof process.env.SAUCE_ACCESS_KEY !== 'undefined' &&
       // Skip Sauce if running a different subset of the test suite
       runSubset('sauce-js-unit') &&

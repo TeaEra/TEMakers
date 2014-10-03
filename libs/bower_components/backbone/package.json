@@ -2,7 +2,7 @@
   "name"          : "backbone",
   "description"   : "Give your JS App some Backbone with Models, Views, Collections, and Events.",
   "url"           : "http://backbonejs.org",
-  "keywords"      : ["model", "view", "controller", "router", "server", "client", "browser"],
+  "keywords"      : ["TEModel", "TEView", "controller", "router", "server", "client", "browser"],
   "author"        : "Jeremy Ashkenas <jeremy@documentcloud.org>",
   "dependencies"  : {
     "underscore"  : ">=1.5.0"
@@ -13,7 +13,7 @@
     "coffee-script": "1.6.1"
   },
   "scripts": {
-    "test": "phantomjs test/vendor/runner.js test/index.html?noglobals=true && coffee test/model.coffee",
+    "test": "phantomjs test/vendor/runner.js test/index.html?noglobals=true && coffee test/TEModel.coffee",
     "build": "uglifyjs backbone.js --mangle --source-map backbone-min.map -o backbone-min.js",
     "doc": "docco backbone.js && docco examples/todos/todos.js examples/backbone.localstorage.js",
     "lint": "jsl -nofilelisting -nologo -conf docs/jsl.conf -process backbone.js"

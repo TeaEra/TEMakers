@@ -24,7 +24,7 @@ $(document).ready(
             });
         }*/
 
-        var mainContentView = new window.view.OneView();
+        var mainContentView = new window.TEView.OneView();
         window.currButtonObj = $("#btn-home");
     }
 );

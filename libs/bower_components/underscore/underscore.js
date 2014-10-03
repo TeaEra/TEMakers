@@ -67,10 +67,10 @@
         return func.call(context, value, other);
       };
       case 3: return function(value, index, collection) {
-        return func.call(context, value, index, collection);
+        return func.call(context, value, index, TECollection);
       };
       case 4: return function(accumulator, value, index, collection) {
-        return func.call(context, accumulator, value, index, collection);
+        return func.call(context, accumulator, value, index, TECollection);
       };
     }
     return function() {
@@ -79,7 +79,7 @@
   };
 
   // A mostly-internal function to generate callbacks that can be applied
-  // to each element in a collection, returning the desired result — either
+  // to each element in a TECollection, returning the desired result — either
   // identity, an arbitrary callback, a property matcher, or a property accessor.
   _.iteratee = function(value, context, argCount) {
     if (value == null) return _.identity;
@@ -233,7 +233,7 @@
     return _.indexOf(obj, target) >= 0;
   };
 
-  // Invoke a method (with arguments) on every item in a collection.
+  // Invoke a method (with arguments) on every item in a TECollection.
   _.invoke = function(obj, method) {
     var args = slice.call(arguments, 2);
     var isFunc = _.isFunction(method);
@@ -309,7 +309,7 @@
     return result;
   };
 
-  // Shuffle a collection, using the modern version of the
+  // Shuffle a TECollection, using the modern version of the
   // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
   _.shuffle = function(obj) {
     var set = obj && obj.length === +obj.length ? obj : _.values(obj);
@@ -323,7 +323,7 @@
     return shuffled;
   };
 
-  // Sample **n** random values from a collection.
+  // Sample **n** random values from a TECollection.
   // If **n** is not specified, returns a single random element.
   // The internal `guard` argument allows it to work with `map`.
   _.sample = function(obj, n, guard) {
@@ -413,7 +413,7 @@
     return obj.length === +obj.length ? obj.length : _.keys(obj).length;
   };
 
-  // Split a collection into two arrays: one whose elements all satisfy the given
+  // Split a TECollection into two arrays: one whose elements all satisfy the given
   // predicate, and one whose elements all do not satisfy the predicate.
   _.partition = function(obj, predicate, context) {
     predicate = _.iteratee(predicate, context);

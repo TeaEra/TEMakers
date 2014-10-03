@@ -29,7 +29,7 @@
     "composer.json",
     "CONTRIBUTING.md",
     "docs",
-    "js/tests",
+    "js/Tests",
     "test-infra"
   ],
   "dependencies": {
