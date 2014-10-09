@@ -10,6 +10,6 @@
 
     window.TECollection.Tests = Backbone.Collection.extend({
         TEModel: window.TEModel.TestModel,
-        url: 'http://localhost/test-api.php'
+        url: '' /*???*/
     });
 })();

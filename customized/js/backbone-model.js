@@ -10,8 +10,8 @@
 
     window.TEModel.TestModel = Backbone.Model.extend({
         defaults: {
-            title: 'title',
-            description: 'description'
+            /*title: 'title',
+            description: 'description'*/
         }
     });
 })();
