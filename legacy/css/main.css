@@ -15,3 +15,23 @@
   height: auto;
   background-color: #f5f5f5;
 }
+
+body {
+    font-family: "MicroSoft YaHei";
+}
+
+.pad-bottom-1em {
+    padding-bottom: 1em;
+}
+
+.pad-top-1em {
+    padding-top: 1em;
+}
+
+.well-font-size {
+    font-size: 1.2em;
+}
+
+.font-size-3em {
+    font-size: 3em;
+}
