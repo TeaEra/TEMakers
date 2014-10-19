@@ -35,3 +35,15 @@ body {
 .font-size-3em {
     font-size: 3em;
 }
+
+.font-size-2em {
+    font-size: 2em;
+}
+
+.font-size-1_2em {
+    font-size: 1.2em;
+}
+
+.front-color-lightgray {
+    color: lightgray;
+}
