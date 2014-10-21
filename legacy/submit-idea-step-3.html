@@ -44,7 +44,7 @@
                     <li class="" id="btn-pre-sale"><a href="javascript:void(0);">预售</a></li>
                     <li class="" id="btn-shop">
                         <a href="javascript:void(0);">
-                            <i class="glyphicon glyphicon-shopping-cart"></i>商店
+                            <span class="glyphicon glyphicon-shopping-cart"></span>商店
                         </a>
                     </li>
                     <li class="" id="btn-vote"><a href="javascript:void(0);">投票</a></li>
@@ -64,97 +64,105 @@
         </div>
     </nav>
     <div id="main-content">
-
         <!-- -->
         <div class="container">
-            <div class="col-md-4">
-                <p class="text-center front-color-lightgray">
-                    <span style="font-size: 3em;">
-                        1
-                    </span>
-                </p>
-                <p class="text-center front-color-lightgray">
-                    <span style="font-size: 1.2em;">
-                        基本信息
-                    </span>
-                </p>
-            </div>
-            <div class="col-md-4">
-                <p class="text-center front-color-lightgray">
-                    <span style="font-size: 3em;">
-                        2
-                    </span>
-                </p>
-                <p class="text-center front-color-lightgray">
-                    <span style="font-size: 1.2em;">
-                        填写详细内容
-                    </span>
-                </p>
-            </div>
-            <div class="col-md-4">
-                <p class="text-center">
-                    <span style="font-size: 3em;">
-                        3
-                    </span>
-                </p>
-                <p class="text-center">
-                    <span style="font-size: 1.2em;">
-                        上传图片&视频
-                    </span>
-                </p>
-            </div>
+        	<div class="row">
+	            <div class="col-md-4">
+	                <p class="text-center front-color-lightgray">
+	                    <span style="font-size: 3em;">
+	                        1
+	                    </span>
+	                </p>
+	                <p class="text-center front-color-lightgray">
+	                    <span style="font-size: 1.2em;">
+	                        基本信息
+	                    </span>
+	                </p>
+	            </div>
+	            <div class="col-md-4">
+	                <p class="text-center front-color-lightgray">
+	                    <span style="font-size: 3em;">
+	                        2
+	                    </span>
+	                </p>
+	                <p class="text-center front-color-lightgray">
+	                    <span style="font-size: 1.2em;">
+	                        填写详细内容
+	                    </span>
+	                </p>
+	            </div>
+	            <div class="col-md-4">
+	                <p class="text-center">
+	                    <span style="font-size: 3em;">
+	                        3
+	                    </span>
+	                </p>
+	                <p class="text-center">
+	                    <span style="font-size: 1.2em;">
+	                        上传图片&视频
+	                    </span>
+	                </p>
+	            </div>
         </div>
 
         <!-- -->
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <p>
-                        <span class="font-size-2em">
-                            上传图片&视频
-                        </span>
-                        <a><i class="glyphicon glyphicon-question-sign"></i></a>
-                    </p>
-                </div>
-            </div>
-            <!-- -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <p>
-                                <span class="font-size-1_2em">
-                                    上传图片
-                                </span>
-                            </p>
-                            <p onclick="uploadFile();">
-                                <a class="btn btn-danger">
-                                    <i class="glyphicon glyphicon-upload"></i> | 选择图片
-                                </a>
-                                <input type="file" multiple style="position: absolute; right: 0px; top: 0px; font-family: Arial; font-size: 118px; margin: 0px; padding: 0px; cursor: pointer; opacity: 0;" />
-                            </p>
-                            <br />
-                            <p>
-                                <span class="font-size-1_2em">视频链接</span>
-                            </p>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="http://" />
-                            </div>
-                            <br />
-                            <p>
-                                <span class="pull-left">
-                                    <a class="btn btn-default" href="">上一步</a>
-                                </span>
-                                <span class="pull-right">
-                                    <a class="btn btn-default" href="">完成</a>
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+	                <div class="col-md-12">
+	                    <p>
+	                        <span class="font-size-2em">
+	                            上传图片&视频
+	                        </span>
+	                        <a><i class="glyphicon glyphicon-question-sign"></i></a>
+	                    </p>
+	                </div>
+	            
+	            <!-- -->
+	            <div class="row">
+	                <div class="col-md-12">
+	                    <div class="panel panel-default">
+	                        <div class="panel-body">
+	                            <p>
+	                                <span class="font-size-1_2em">
+	                                    上传图片
+	                                </span>
+	                            </p>
+	                            <form action=""  enctype="multipart/form-data" name="form1">
+	                            	<input id="f" type="file" name="f" onchange="change()" />
+									<div class="upload">上传图片</div>
+									<hr />
+									<p>
+										<img id="preview" alt="" name="pic" />
+									</p>
+	                            </form>
+	                            <!--<p onclick="uploadFile();">
+	                                <a class="btn btn-danger">
+	                                    <i class="glyphicon glyphicon-upload"></i> | 选择图片
+	                                </a>
+	                                <input type="file" multiple style="position: absolute; right: 0px; top: 0px; font-family: Arial; font-size: 118px; margin: 0px; padding: 0px; cursor: pointer; opacity: 0;" />
+	                            </p>-->
+	                            <br />
+	                            <p>
+	                                <span class="font-size-1_2em">视频链接</span>
+	                            </p>
+	                            <div class="form-group">
+	                                <input class="form-control" placeholder="http://" />
+	                            </div>
+	                            <br />
+	                            <p>
+	                                <span class="pull-left">
+	                                    <a class="btn btn-default" href="">上一步</a>
+	                                </span>
+	                                <span class="pull-right">
+	                                    <a class="btn btn-default" href="">完成</a>
+	                                </span>
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+		</div>
     </div>
 </div>
 <br />
@@ -207,6 +215,44 @@
 <!-- -->
 <script>
     function uploadFile() {
+    	var pic = document.getElementById("preview"),
+		file = document.getElementById("f");
+		var ext = file.value.substring(file.value.lastIndexOf(".") + 1).toLowerCase();
+
+		// gif在IE浏览器暂时无法显示
+		if (ext != 'png' && ext != 'jpg' && ext != 'jpeg') {
+			alert("图片的格式必须为png或者jpg或者jpeg格式！");
+			return;
+		}
+		var isIE = navigator.userAgent.match(/MSIE/) != null,
+			isIE6 = navigator.userAgent.match(/MSIE 6.0/) != null;
+
+		if (isIE) {
+			file.select();
+			var reallocalpath = document.selection.createRange().text;
+
+			// IE6浏览器设置img的src为本地路径可以直接显示图片
+			if (isIE6) {
+				pic.src = reallocalpath;
+			} else {
+				// 非IE6版本的IE由于安全问题直接设置img的src无法显示本地图片，但是可以通过滤镜来实现
+				pic.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='image',src=\"" + reallocalpath + "\")";
+				// 设置img的src为base64编码的透明图片 取消显示浏览器默认图片
+				pic.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+			}
+		} else {
+			html5Reader(file);
+		}
+		}
+
+		function html5Reader(file) {
+			var file = file.files[0];
+			var reader = new FileReader();
+			reader.readAsDataURL(file);
+			reader.onload = function(e) {
+				var pic = document.getElementById("preview");
+				pic.src = this.result;
+			}
     }
 </script>
 
