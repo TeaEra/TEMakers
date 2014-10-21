@@ -18,12 +18,17 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+    	body{
+    		padding-top: 50px;
+    	}
+    </style>
 </head>
 <body>
 
 <div class="wrap">
-    <!-- -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <!--头部导航栏开始-->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button id="collapsed-navbar" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -40,27 +45,60 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active" id="btn-home"><a href="javascript:void(0);">主页</a></li>
-                    <li class="" id="btn-pre-sale"><a href="javascript:void(0);">预售</a></li>
-                    <li class="" id="btn-shop"><a href="javascript:void(0);">商店</a></li>
-                    <li class="" id="btn-vote"><a href="javascript:void(0);">投票</a></li>
-                    <li class="" id="btn-bbs"><a href="javascript:void(0);">社区</a></li>
+                    <li class="active" id="btn-home">
+                    	<a href="javascript:void(0);">
+                    		<span class="glyphicon glyphicon-home"></span>
+                    		主页
+                    	</a>
+                    </li>
+                    <li class="" id="btn-pre-sale">
+                    	<a href="javascript:void(0);">
+                    		<span class="glyphicon glyphicon-dashboard"></span>
+                    		预售
+                    	</a>
+                    </li>
+                    <li class="" id="btn-shop">
+                    	<a href="javascript:void(0);">
+                    		<span class="glyphicon glyphicon-shopping-cart"></span>
+                    		商店
+                    	</a>
+                    </li>
+                    <li class="" id="btn-vote">
+                    	<a href="javascript:void(0);">
+                    		<span class="glyphicon glyphicon-heart"></span>
+                    		投票
+                    	</a>
+                    </li>
+                    <li class="" id="btn-bbs">
+                    	<a href="javascript:void(0);">
+                    		<span class="glyphicon glyphicon-tree-deciduous"></span>
+                    		社区
+                    	</a>
+                    </li>
                 </ul>
                 <form class="navbar-form navbar-left" role="search">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-info">Submit</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li id="btn-login"><a href="accounts/login">登录</a></li>
-                    <li id="btn-register"><a href="accounts/register">注册</a></li>
+                    <li id="btn-login">
+                    	<a href="accounts/login">
+                    		<span class="glyphicon glyphicon-user"></span>
+                    		登录
+                    	</a>
+                    </li>
+                    <li id="btn-register">
+                    	<a href="accounts/register">注册</a>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
     </nav>
+    <!--头部导航栏结束-->
     <div id="main-content">
-        <!-- -->
+        <!--预售商品区域区域开始-->
         <div class="container" id="product-carousel">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
@@ -74,7 +112,7 @@
                     <div class="item active">
                         <img src="../legacy/img/first-slide.svg" alt="...">
                         <div class="carousel-caption">
-                            ...
+                            很好啊
                         </div>
                     </div>
                     <div class="item">
@@ -100,63 +138,125 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-        </div>
-        <!-- -->
+        </div>        
+        <!--预售商品区域结束--><br />
+        <!--热卖商品区域开始-->
         <div class="container" id="product-three-columns">
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <img class="img-responsive" src="../legacy/img/Chrysanthemum.jpg" />
-                    </div>
-                    <div class="panel-footer">
-                        <h6>Title</h6>
-                        <p style="word-wrap: break-word;">
-                            <small>Author: xxxxxx</small>
-                        </p>
-                        <p style="word-wrap: break-word;">
-                            <small>
-                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                            </small>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <img class="img-responsive" src="../legacy/img/Desert.jpg" />
-                    </div>
-                    <div class="panel-footer">
-                        <h6>Title</h6>
-                        <p style="word-wrap: break-word;">
-                            <small>Author: xxxxxx</small>
-                        </p>
-                        <p style="word-wrap: break-word;">
-                            <small>
-                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                            </small>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <img class="img-responsive" src="../legacy/img/Hydrangeas.jpg" />
-                    </div>
-                    <div class="panel-footer">
-                        <h6>Title</h6>
-                        <p style="word-wrap: break-word;">
-                            <small>Author: xxxxxx</small>
-                        </p>
-                        <p style="word-wrap: break-word;">
-                            <small>
-                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                            </small>
-                        </p>
-                    </div>
-                </div>
-            </div>
+        	<div class="row">
+        		<h3>热卖商品</h3>
+	            <div class="col-md-4">
+	                <div class="panel panel-default">
+	                    <div class="panel-body">
+	                        <img class="img-responsive" src="../legacy/img/Chrysanthemum.jpg" />
+	                    </div>
+	                    <div class="panel-footer">
+	                        <h6>Title</h6>
+	                        <p style="word-wrap: break-word;">
+	                            <small>Author: xxxxxx</small>
+	                        </p>
+	                        <p style="word-wrap: break-word;">
+	                            <small>
+	                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	                            </small>
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="col-md-4">
+	                <div class="panel panel-default">
+	                    <div class="panel-body">
+	                        <img class="img-responsive" src="../legacy/img/Desert.jpg" />
+	                    </div>
+	                    <div class="panel-footer">
+	                        <h6>Title</h6>
+	                        <p style="word-wrap: break-word;">
+	                            <small>Author: xxxxxx</small>
+	                        </p>
+	                        <p style="word-wrap: break-word;">
+	                            <small>
+	                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	                            </small>
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="col-md-4">
+	                <div class="panel panel-default">
+	                    <div class="panel-body">
+	                        <img class="img-responsive" src="../legacy/img/Hydrangeas.jpg" />
+	                    </div>
+	                    <div class="panel-footer">
+	                        <h6>Title</h6>
+	                        <p style="word-wrap: break-word;">
+	                            <small>Author: xxxxxx</small>
+	                        </p>
+	                        <p style="word-wrap: break-word;">
+	                            <small>
+	                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	                            </small>
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <!--热卖商品区域结束-->
+	        <div class="row">	          
+	            <div class="col-md-4">
+	                <div class="panel panel-default">
+	                    <div class="panel-body">
+	                        <img class="img-responsive" src="../legacy/img/Chrysanthemum.jpg" />
+	                    </div>
+	                    <div class="panel-footer">
+	                        <h6>Title</h6>
+	                        <p style="word-wrap: break-word;">
+	                            <small>Author: xxxxxx</small>
+	                        </p>
+	                        <p style="word-wrap: break-word;">
+	                            <small>
+	                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	                            </small>
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="col-md-4">
+	                <div class="panel panel-default">
+	                    <div class="panel-body">
+	                        <img class="img-responsive" src="../legacy/img/Desert.jpg" />
+	                    </div>
+	                    <div class="panel-footer">
+	                        <h6>Title</h6>
+	                        <p style="word-wrap: break-word;">
+	                            <small>Author: xxxxxx</small>
+	                        </p>
+	                        <p style="word-wrap: break-word;">
+	                            <small>
+	                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	                            </small>
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="col-md-4">
+	                <div class="panel panel-default">
+	                    <div class="panel-body">
+	                        <img class="img-responsive" src="../legacy/img/Hydrangeas.jpg" />
+	                    </div>
+	                    <div class="panel-footer">
+	                        <h6>Title</h6>
+	                        <p style="word-wrap: break-word;">
+	                            <small>Author: xxxxxx</small>
+	                        </p>
+	                        <p style="word-wrap: break-word;">
+	                            <small>
+	                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	                            </small>
+	                        </p>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <!---->
         </div>
     </div>
 </div>
@@ -167,7 +267,7 @@
         <div class="row">
             <div class="col-md-3">
                 <h3><b>关于XXX</b></h3>
-                <h4>关于我们</h4>
+                <h4><a href="">关于我们</a></h4>
                 <h4>联系我们</h4>
                 <h4>成功案例</h4>
                 <h4>加入我们</h4>
