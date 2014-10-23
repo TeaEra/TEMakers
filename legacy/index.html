@@ -22,6 +22,10 @@
     	body{
     		padding-top: 50px;
     	}
+    	.dropdown{
+    		top: 10px;
+    		right: 10px;
+    	}
     </style>
 </head>
 <body>
@@ -84,13 +88,43 @@
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li id="btn-login">
-                    	<a href="accounts/login">
+                    	<a style="display: none;" href="accounts/login">
                     		<span class="glyphicon glyphicon-user"></span>
                     		登录
                     	</a>
                     </li>
                     <li id="btn-register">
-                    	<a href="accounts/register">注册</a>
+                    	<a style="display: none;" href="accounts/register">注册</a>
+                    	<!--用户中心开始-->
+                    	<div style="display: -none;" class="dropdown">
+						   <button type="button" class="btn dropdown-toggle" id="user-center" 
+						      data-toggle="dropdown">
+						      XXX用户
+						      <span class="caret"></span>
+						   </button>
+						   <ul class="dropdown-menu" role="menu" aria-labelledby="user-center">
+						      <li role="presentation" >
+						         <a role="menuitem" tabindex="-1" href="#">账户设置</a>
+						      </li>
+						      <li role="presentation" class="divider"></li>
+						      <li role="presentation" >
+						         <a role="menuitem" tabindex="-1" href="#">查看个人资料</a>
+						      </li>
+						      <li role="presentation" class="divider"></li>
+						      <li role="presentation">
+						         <a role="menuitem" tabindex="-1" href="#">我的订单</a>
+						      </li>
+						      <li role="presentation" class="divider"></li>
+						      <li role="presentation">
+						         <a role="menuitem" tabindex="-1" href="#">帮助</a>
+						      </li>
+						      <li role="presentation" class="divider"></li>
+						      <li role="presentation">
+						         <a role="menuitem" tabindex="-1" href="#">退出</a>
+						      </li>
+						   </ul>
+						</div>
+						<!--用户中心结束-->
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
