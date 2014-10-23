@@ -44,7 +44,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" id="navbar-top">
                     <li class="active" id="btn-home">
                     	<a href="javascript:void(0);">
                     		<span class="glyphicon glyphicon-home"></span>
@@ -337,7 +337,13 @@
 <script src="js/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
-
+<script>
+	$(function(){
+		$("#navbar-top li").click(function(){
+			$(this).addClass("active").siblings("li").removeClass("active");
+		})
+	})
+</script>
 
 </body>
 </html>
