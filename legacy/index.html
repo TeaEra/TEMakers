@@ -37,12 +37,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <!-- -->
+                <!--logo-->
                 <a class="navbar-brand" href="javascript:void(0);">
                     <img alt="Brand" src="" />
                 </a>
+                <!--logo-->
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!--导航栏items区域开始-->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" id="navbar-top">
                     <li class="active" id="btn-home">
@@ -76,54 +77,94 @@
                     	</a>
                     </li>
                 </ul>
+                <!--导航栏items区域结束-->
+                <!--导航栏搜索框form表单开始-->
                 <form class="navbar-form navbar-left" role="search">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="请输入搜索内容">
                     </div>
-                    <button type="submit" class="btn btn-info">Submit</button>
+                    <button type="submit" class="btn btn-info">搜索</button>
                 </form>
+                <!--导航栏搜索框form表单结束-->
                 <ul class="nav navbar-nav navbar-right">
-                    <li id="btn-login">
-                    	<a style="display: none;" href="accounts/login">
+                	<li id="btn-shopping-cart" class="dropdown" style="position: relative;" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="您的购物车里还没有商品，赶快选购吧！">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    		<span class="glyphicon glyphicon-shopping-cart"></span>
+                    		购物车
+                    		<b class="caret"></b>
+                    	</a>
+                    	<div class="panel panel-default panel-cart" style="display: none; position: absolute; top: 50px; left: -370px;">
+	                    	<div class="panel-body">
+				                <table class="table table-hover" style="width: 428px;">
+								   <thead>
+								      <tr>
+								      	 <th></th>
+								         <th>产品信息</th>
+								         <th>数量</th>
+								         <th>小计</th>
+								         <th></th>
+								      </tr>
+								   </thead>
+								   <tbody>
+								      <tr style="height: 73px;">
+								      	 <td style="width: 64px;"><a href="#"><img class="img-circle" src="img/cc.jpg" alt="" style="width: 50px;height: 50px;" /></a></td>
+								         <td style="width: 140px;"><a href="#">COCO面条数据线 七彩鞋带时尚</a></td>
+								         <td style="width: 47px;">1</td>
+								         <td style="width: 45px;">39</td>
+								         <td style="width: 140px;"><a href="#"><span class="glyphicon glyphicon-trash pull-right"></span></a></td>
+								      </tr>
+								      <tr style="height: 73px;">
+								      	 <td style="width: 64px;"><a href="#"><img class="img-circle" src="img/cc.jpg" alt="" style="width: 50px;height: 50px;" /></a></td>
+								         <td style="width: 140px;"><a href="#">COCO面条数据线 多功能多彩</a></td>
+								         <td style="width: 47px;">1</td>
+								         <td style="width: 45px;">39</td>
+								         <td style="width: 140px;"><a href="#"><span class="glyphicon glyphicon-trash pull-right"></span></a></td>
+								      </tr>
+								      <tr style="height: 73px;">
+								      	 <td colspan="4">
+								      	 	<p>共计：<span style="color: red;">2</span>&nbsp;件产品</p>
+								      	 	<p>总计：<span style="color: red;">78</span>&nbsp;元</p>
+								      	 </td>
+								      	 <td>
+								      	 	<a href="#" class="btn btn-success pull-right">去结算</a>
+								      	 </td>
+								      </tr>
+								   </tbody>
+								</table>
+							</div>
+						</div>
+                    </li>                    
+                    <li id="btn-login" style="display: none;">
+                    	<a href="accounts/login">
                     		<span class="glyphicon glyphicon-user"></span>
                     		登录
                     	</a>
                     </li>
-                    <li id="btn-register">
-                    	<a style="display: none;" href="accounts/register">注册</a>
-                    	<!--用户中心开始-->
-                    	<div style="display: -none; top: 10px; right: 10px;" class="dropdown">
-						   <button type="button" class="btn dropdown-toggle" id="user-center" 
-						      data-toggle="dropdown">
-						      XXX用户
-						      <span class="caret"></span>
-						   </button>
-						   <ul class="dropdown-menu" role="menu" aria-labelledby="user-center">
-						      <li role="presentation" >
-						         <a role="menuitem" tabindex="-1" href="#">账户设置</a>
-						      </li>
-						      <li role="presentation" class="divider"></li>
-						      <li role="presentation" >
-						         <a role="menuitem" tabindex="-1" href="#">查看个人资料</a>
-						      </li>
-						      <li role="presentation" class="divider"></li>
-						      <li role="presentation">
-						         <a role="menuitem" tabindex="-1" href="#">我的订单</a>
-						      </li>
-						      <li role="presentation" class="divider"></li>
-						      <li role="presentation">
-						         <a role="menuitem" tabindex="-1" href="#">帮助</a>
-						      </li>
-						      <li role="presentation" class="divider"></li>
-						      <li role="presentation">
-						         <a role="menuitem" tabindex="-1" href="#">退出</a>
-						      </li>
-						   </ul>
-						</div>
-						<!--用户中心结束-->
+                    <li id="btn-register" style="display: none;">
+                    	<a href="accounts/register">注册</a>                    	
                     </li>
+                    <!--登录后用户中心区域开始/默认隐藏-->
+                    <li id="" class="dropdown" style="display: -none;">
+                    	<a href="accounts/login" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="500" data-close-others="false">
+                    		<span class="glyphicon glyphicon-user"></span>
+                    		XXX用户
+                    		<b class="caret"></b>
+                    	</a>
+                		<ul class="dropdown-menu">
+                			<li><a href="">账户设置</a></li>
+                			<li class="divider"></li>
+                			<li><a href="">查看个人资料</a></li>
+                			<li class="divider"></li>
+                			<li><a href="">我的订单</a></li>
+                			<li class="divider"></li>
+                			<li><a href="">帮助</a></li>
+                			<li class="divider"></li>
+                			<li><a href="">退出</a></li>
+                		</ul>                    	
+                    </li>
+                    <!--登录后用户中心区域结束-->
                 </ul>
-            </div><!-- /.navbar-collapse -->
+            </div>
         </div>
     </nav>
     <!--头部导航栏结束-->
@@ -337,11 +378,21 @@
 <script src="js/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-hover-dropdown.min.js"></script>
 <script>
 	$(function(){
+		//头部nav导航栏选中效果
 		$("#navbar-top li").click(function(){
 			$(this).addClass("active").siblings("li").removeClass("active");
 		})
+		// 购物车提示信息弹框
+//		$('#btn-shopping-cart').popover('hidden'); //未有商品加入购物车的提示框
+
+		$('#btn-shopping-cart').hover(function(){ //已有商品加入购物车的提示框
+			$('.panel-cart').toggle();
+		});
+		//用户中心hover下拉效果
+		$('.dropdown-toggle').dropdownHover(options);
 	})
 </script>
 
