@@ -45,15 +45,15 @@
             </ul>\
             <form class="navbar-form navbar-left" role="search">\
                 <div class="form-group">\
-                    <input type="text" class="form-control" placeholder="Search">\
-                    </div>\
-                    <button type="submit" class="btn btn-default">Submit</button>\
-                </form>\
-                <ul class="nav navbar-nav navbar-right">\
-                    <li id="btn-login"><a href="javascript:void(0);">登录</a></li>\
-                    <li id="btn-register"><a href="javascript:void(0);">注册</a></li>\
-                </ul>\
-            </div><!-- /.navbar-collapse -->\
+                <input type="text" class="form-control" placeholder="Search">\
+                </div>\
+                <button type="submit" class="btn btn-default">Submit</button>\
+            </form>\
+            <ul class="nav navbar-nav navbar-right">\
+                <li id="btn-login"><a href="javascript:void(0);">登录</a></li>\
+                <li id="btn-register"><a href="javascript:void(0);">注册</a></li>\
+            </ul>\
+        </div><!-- /.navbar-collapse -->\
         </div>\
     </nav>\
     ');
