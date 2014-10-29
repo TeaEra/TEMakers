@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>账户设置</title>
+    <title>个人信息</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -164,86 +164,126 @@
 <!--导航栏区域结束-->
 <!--内容区域开始-->
 <section>
-  <div class="container">
-  	<div class="row">
-  	  <div class="col-md-3">  	   
-  	    <div class="list-group">
-  	      <a href="#" class="list-group-item active">
-  	      	个人中心
-  	      	<i class="glyphicon glyphicon-home pull-right"></i>
-  	      </a>
-  	      <a href="#" class="list-group-item">
-  	      	账户设置
-  	      	<i class="glyphicon glyphicon-cog pull-right"></i>
-  	      </a>
-  	      <a href="#" class="list-group-item">
-  	      	个人资料
-  	      	<i class="glyphicon glyphicon-user pull-right"></i>
-  	      </a>
-  	      <a href="#" class="list-group-item">
-  	      	收货地址
-  	      	<i class="glyphicon glyphicon-map-marker pull-right"></i>
-  	      </a>
-  	      <a href="#" class="list-group-item">
-  	      	我的订单
-  	      	<i class="glyphicon glyphicon-shopping-cart pull-right"></i>
-  	      </a>
-  	      <a href="#" class="list-group-item">
-  	      	我的红包
-  	      	<i class="glyphicon glyphicon-gift pull-right"></i>
-  	      </a>
-  	      <a href="#" class="list-group-item">
-  	      	售后服务
-  	      	<i class="glyphicon glyphicon-phone-alt pull-right"></i>
-  	      </a>
-  	    </div>
-  	  </div>
-  	  <div class="col-md-9">
-  	  	<h2>设置个人资料</h2>
-  	  	<div class="panel panel-default">
-  	  	  <div class="panel-body">
-  	  	  	<form action="#" role="form">
-  	  	  	  <h3>设置头像</h3>
-  	  	  	  <hr />
-  	  	  	  <div class="row">
-  	  	  	  	<div class="col-md-2">
-  	  	  	  	  <a href="#">
-  	  	  	  	  	<img class="img-circle img-circle" src="img/avatar_default_small.jpg" alt="" />
-  	  	  	  	  </a>
-  	  	  	  	</div>
-  	  	  	  	<div class="col-md-10">
-  	  	  	  	  <p>设置一个宽度大于400px、小于3M的JPG头像，让小伙伴们迅速认识你.</p>
-  	  	  	  	  <p style="position: relative;">
-  	  	  	  	    <input type="file" name="" id="" value="" style="opacity: 0; font-size: 50px;position: absolute;display: block;" />
-  	  	  	  	    <input class="btn btn-danger" type="button" name="" id="" value="选择图片" />
-  	  	  	  	  </p>  	  	  	  	   	  	  	  	  
-  	  	  	  	</div>
-  	  	  	  </div>
-  	  	  	  <h3>详细内容</h3>
-  	  	  	  <hr />
-  	  	  	  <div class="row">
-  	  	  	  	<div class="col-md-3">
-  	  	  	  	  <label for="" style="font-weight: 400;">
-  	  	  	  	  	当前密码
-  	  	  	  	  	<input class="form-control" type="text" placeholder="请输入旧密码" />
-  	  	  	  	  </label>
-  	  	  	  	  <label for="" style="font-weight: 400;">
-  	  	  	  	  	设置密码
-  	  	  	  	  	<input class="form-control" type="text" placeholder="请输入新密码" />
-  	  	  	  	  </label>
-  	  	  	  	  <label for="" style="font-weight: 400;">
-  	  	  	  	  	确认密码
-  	  	  	  	  	<input class="form-control" type="text" placeholder="请再次输入新密码" />
-  	  	  	  	  </label>
-  	  	  	  	  <input class="btn btn-success" type="button" value="确认修改" />
-  	  	  	  	</div>
-  	  	  	  </div>
-  	  	  	</form>
-  	  	  </div>
-  	  	</div>
-  	  </div>	
-  	</div>
-  </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="list-group">
+					<a href="#" class="list-group-item active">个人中心<i class="glyphicon glyphicon-home pull-right"></i></a>
+					<a href="#" class="list-group-item">账户设置<i class="glyphicon glyphicon-cog pull-right"></i></a>
+					<a href="#" class="list-group-item">个人资料<i class="glyphicon glyphicon-user pull-right"></i></a>
+					<a href="#" class="list-group-item">收货地址<i class="glyphicon glyphicon-map-marker pull-right"></i></a>
+					<a href="#" class="list-group-item">我的订单<i class="glyphicon glyphicon-shopping-cart pull-right"></i></a>
+					<a href="#" class="list-group-item">我的红包<i class="glyphicon glyphicon-gift pull-right"></i></a>
+					<a href="#" class="list-group-item">售后服务<i class="glyphicon glyphicon-phone-alt pull-right"></i></a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<h2>设置个人资料</h2>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h3 class="page-header">设置头像</h3>
+						<form action="#" role="form">
+							<div class="row">
+								<div class="col-md-2">
+									<div class="form-group">
+										<a href="#">
+											<img class="img-responsive img-circle" src="img/avatar_default_small.jpg" alt="头像" />
+										</a>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<p>设置一个宽度大于400px、小于3M的JPG头像，让小伙伴们迅速认识你.</p>
+										<a class="btn btn-danger" href="#">
+											<i class="glyphicon glyphicon-picture"></i>
+											选择图片
+										</a>
+									</div>
+								</div>
+							</div>
+						</form>
+						<h3 class="page-header">详细资料</h3>
+						<form action="#" role="form">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="">姓名：</label>
+										<input class="form-control" type="text" placeholder="请输入姓名" />
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="">性别：</label>
+										<select class="form-control">
+											<option value="">男</option>
+											<option value="">女</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="">职业：</label>
+										<input class="form-control" type="text" placeholder="请输入职业" />
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="">城市：</label>
+										<input class="form-control" type="text" placeholder="请输入城市" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="">邮箱：</label>
+										<input class="form-control" type="text" placeholder="请输入邮箱" />
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="">手机：</label>
+										<input class="form-control" type="text" placeholder="请输入手机号码" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="">地址：</label>
+										<input class="form-control" type="text" placeholder="请输入地址" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="">我的亮点：</label>
+										<textarea class="form-control" rows="2" placeholder="请输入地址" ></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="">个人简介：</label>
+										<textarea class="form-control" rows="6" placeholder="请输入地址" ></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 col-md-offset-4 text-center">
+									<button class="btn btn-success">确认提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 <!--内容区域结束-->
 <!--页脚区域开始-->
